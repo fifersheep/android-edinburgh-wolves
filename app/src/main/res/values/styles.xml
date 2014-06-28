@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="WolvesTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/WolvesTheme.ActionBarStyle</item>
+    </style>
+
+    <style name="WolvesTheme.ActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/red</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:titleTextStyle" tools:ignore="NewApi">@style/WolvesTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="WolvesTheme.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/transparent</item>
+    </style>
+
+    <style name="scoreboard_team">
+        <item name="android:paddingTop">@dimen/scoreboard_fields_top_padding</item>
+        <item name="android:paddingBottom">@dimen/scoreboard_fields_top_padding</item>
+    </style>
+    <style name="scoreboard_score">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingTop">@dimen/scoreboard_fields_top_padding</item>
+        <item name="android:paddingBottom">@dimen/scoreboard_fields_top_padding</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="standings_table">
+        <item name="android:background">@drawable/standings_border</item>
+        <item name="android:padding">@dimen/standings_cell_padding</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+</resources>
