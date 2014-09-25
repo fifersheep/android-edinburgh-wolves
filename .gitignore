@@ -1,6 +1,10 @@
-.gradle
+# Android Studio
 /local.properties
-/.idea/workspace.xml
 .DS_Store
 *.iml
 .idea
+
+# Gradle
+.gradle/
+gradle/
+build/
