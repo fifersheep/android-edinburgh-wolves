@@ -90,10 +90,13 @@ public class StandingsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(ArrayList<Team> standings) {
-
-            setScoreboard();
-            setStandings(standings);
-            saveStandings(standings);
+            if (standings.isEmpty()) {
+                Toast.makeText(getActivity(), "No new standings data available", Toast.LENGTH_LONG).show();
+            } else {
+                setScoreboard();
+                setStandings(standings);
+                saveStandings(standings);
+            }
         }
 
         private void getTwitterPost() {
@@ -107,7 +110,10 @@ public class StandingsFragment extends Fragment {
         private void getStandingsTable(ArrayList<Team> teams, Document doc) {
             // Pulls standings table data
             Element standingsTable = doc.select("table[class=footable]").first();
-            Elements rows = standingsTable.select("tr");
+            Elements rows;
+            if (standingsTable != null) {
+                rows = standingsTable.select("tr");
+            } else { return; }
 
             // For each row (except header), create a new 'Team' object
             for (Element row : rows.subList(1, rows.size())) {
@@ -182,10 +188,11 @@ public class StandingsFragment extends Fragment {
 
         private void getMostRecentGameResults(Document doc) {
             // Pulls most recent game result
-
             Element fixturesDiv = doc.select("div#fixtures").first();
-            Elements listItems = fixturesDiv.select("li");
-
+            Elements listItems;
+            if (fixturesDiv != null) {
+                listItems = fixturesDiv.select("li");
+            } else { return; }
 
             for (Element listItem : listItems) {
                 String dateString = listItem.select("span").first().text() + "/2013";
