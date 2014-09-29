@@ -25,7 +25,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="EDI"
-            android:textSize="@dimen/latest_score"
+            android:textSize="@dimen/scoreboard_score"
             android:paddingBottom="@dimen/scoreboard_fields_top_padding"
             android:paddingTop="@dimen/scoreboard_fields_top_padding"/>
 
@@ -36,7 +36,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="17"
-            android:textSize="@dimen/latest_score"
+            android:textSize="@dimen/scoreboard_score"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
             android:paddingTop="@dimen/scoreboard_fields_top_padding"
@@ -59,7 +59,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="16"
-            android:textSize="@dimen/latest_score"
+            android:textSize="@dimen/scoreboard_score"
             android:textColor="@android:color/black"
             android:background="@color/white"
             android:paddingTop="@dimen/scoreboard_fields_top_padding"
@@ -72,7 +72,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="GLA"
-            android:textSize="@dimen/latest_score"
+            android:textSize="@dimen/scoreboard_score"
             android:paddingTop="@dimen/scoreboard_fields_top_padding"
             android:paddingBottom="@dimen/scoreboard_fields_top_padding"/>
 

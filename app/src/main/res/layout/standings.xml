@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent" android:layout_height="match_parent"
+android:id="@+id/background_layout"
+android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/scoreboard_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/dark_grey"
+        android:paddingTop="@dimen/scoreboard_top_bottom_padding"
+        android:paddingBottom="@dimen/scoreboard_top_bottom_padding" >
+
+        <TextView
+            android:id="@+id/textView_home_team_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textView_left_score_new"
+            android:layout_centerVertical="true"
+            android:text="EDI"
+            android:textSize="@dimen/scoreboard_team_name" />
+
+        <TextView
+            android:id="@+id/textView_left_score_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textView_vs_new"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/scoreboard_fields_side_padding"
+            android:paddingRight="@dimen/scoreboard_fields_side_padding"
+            android:text="17"
+            android:textSize="@dimen/scoreboard_score"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/textView_vs_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/default_scoreboard_center"
+            android:textSize="@dimen/scoreboard_vs"  />
+
+        <TextView
+            android:id="@+id/textView_right_score_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView_vs_new"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/scoreboard_fields_side_padding"
+            android:paddingRight="@dimen/scoreboard_fields_side_padding"
+            android:text="@string/default_away_score"
+            android:textSize="@dimen/scoreboard_score"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/textView_away_team_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView_right_score_new"
+            android:layout_centerVertical="true"
+            android:text="@string/default_away_team_acronym"
+            android:textSize="@dimen/scoreboard_team_name" />
+        </RelativeLayout>
+
+<TextView android:id="@+id/standings_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/scoreboard_layout"
+    android:layout_margin="5dp"
+    android:gravity="center_horizontal"
+    android:text="National North Division"
+    android:textColor="@color/dark_grey"/>
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/standings_header"
+    android:background="@drawable/standings_border"
+    android:layout_marginBottom="10dp"
+    android:layout_margin="@dimen/body_margin"
+    android:id="@+id/tableLayout">
+
+    <TableRow
+        android:id="@+id/tableRow_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:background="@color/standings_header">
+
+        <TextView
+            android:id="@+id/textView_standingsName_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_header_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_header_foragg" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow_first"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/textView_standingsName_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow_second"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView_standingsName_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow_third"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView_standingsName_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow_fourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView_standingsName_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow_fifth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView_standingsName_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow_sixth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView_standingsName_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            style="@style/standings_table"
+            android:text="@string/standings_default_team" />
+
+        <TextView
+            android:id="@+id/textView_standingsWins_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_wlt" />
+
+        <TextView
+            android:id="@+id/textView_standingsPct_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_pct" />
+
+        <TextView
+            android:id="@+id/textView_standingsForagg_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            style="@style/standings_table"
+            android:text="@string/standings_default_foragg" />
+    </TableRow>
+</TableLayout>
+
+</RelativeLayout>

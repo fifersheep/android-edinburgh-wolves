@@ -11,8 +11,11 @@
 
     <dimen name="menu_text_size"> 14sp </dimen>
 
-    <dimen name="latest_score"> 25sp </dimen>
-    <dimen name="scoreboard_fields_top_padding"> 3dp </dimen>
+    <dimen name="scoreboard_team_name"> 25sp </dimen>
+    <dimen name="scoreboard_score"> 32sp </dimen>
+    <dimen name="scoreboard_vs"> 16sp </dimen>
+    <dimen name="scoreboard_top_bottom_padding"> 5dp </dimen>
+    <dimen name="scoreboard_fields_side_padding"> 12dp </dimen>
 
     <dimen name="border_width"> 0.1dp </dimen>
     <dimen name="border_offset"> -1dp </dimen>
