@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app;
+package uk.lobsterdoodle.edinburghwolves.app.core;
 
 /** Created by Scott Laing
  *  on 11/04/2014 @ 22:34 */
@@ -12,8 +12,11 @@ package uk.lobsterdoodle.edinburghwolves.app;
     private String goalsFor;
     private String goalsAgainst;
 
-    public Team(String n, String w, String l, String t, String p, String f, String a) {
+    public Team(String name) {
+        this(name, "0", "0", "0", "0", "0", "0");
+    }
 
+    public Team(String n, String w, String l, String t, String p, String f, String a) {
         this.name = n;
         this.wins = w;
         this.loses = l;
