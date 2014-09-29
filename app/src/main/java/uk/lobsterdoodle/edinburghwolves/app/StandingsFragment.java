@@ -32,6 +32,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import uk.lobsterdoodle.edinburghwolves.app.core.Team;
+
 public class StandingsFragment extends Fragment {
 
     TextView mTvData;
@@ -51,7 +53,7 @@ public class StandingsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.wolves, container, false);
+        return inflater.inflate(R.layout.standings, container, false);
     }
 
     protected boolean isNetworkAvailable() {

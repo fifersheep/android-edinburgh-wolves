@@ -26,8 +26,8 @@
             android:gravity="center"
             android:text="EDI"
             android:textSize="@dimen/scoreboard_score"
-            android:paddingBottom="@dimen/scoreboard_fields_top_padding"
-            android:paddingTop="@dimen/scoreboard_fields_top_padding"/>
+            android:paddingBottom="@dimen/scoreboard_top_bottom_padding"
+            android:paddingTop="@dimen/scoreboard_top_bottom_padding"/>
 
         <TextView
             android:id="@+id/textView_left_score"
@@ -39,8 +39,8 @@
             android:textSize="@dimen/scoreboard_score"
             android:background="@android:color/white"
             android:textColor="@android:color/black"
-            android:paddingTop="@dimen/scoreboard_fields_top_padding"
-            android:paddingBottom="@dimen/scoreboard_fields_top_padding"/>
+            android:paddingTop="@dimen/scoreboard_top_bottom_padding"
+            android:paddingBottom="@dimen/scoreboard_top_bottom_padding"/>
 
         <TextView
             android:id="@+id/textView_vs"
@@ -62,8 +62,8 @@
             android:textSize="@dimen/scoreboard_score"
             android:textColor="@android:color/black"
             android:background="@color/white"
-            android:paddingTop="@dimen/scoreboard_fields_top_padding"
-            android:paddingBottom="@dimen/scoreboard_fields_top_padding"/>
+            android:paddingTop="@dimen/scoreboard_top_bottom_padding"
+            android:paddingBottom="@dimen/scoreboard_top_bottom_padding"/>
 
         <TextView
             android:id="@+id/textView_away_team"
@@ -73,8 +73,8 @@
             android:gravity="center"
             android:text="GLA"
             android:textSize="@dimen/scoreboard_score"
-            android:paddingTop="@dimen/scoreboard_fields_top_padding"
-            android:paddingBottom="@dimen/scoreboard_fields_top_padding"/>
+            android:paddingTop="@dimen/scoreboard_top_bottom_padding"
+            android:paddingBottom="@dimen/scoreboard_top_bottom_padding"/>
 
     </LinearLayout>
 

@@ -18,13 +18,13 @@
     </style>
 
     <style name="scoreboard_team">
-        <item name="android:paddingTop">@dimen/scoreboard_fields_top_padding</item>
-        <item name="android:paddingBottom">@dimen/scoreboard_fields_top_padding</item>
+        <item name="android:paddingTop">@dimen/scoreboard_top_bottom_padding</item>
+        <item name="android:paddingBottom">@dimen/scoreboard_top_bottom_padding</item>
     </style>
     <style name="scoreboard_score">
         <item name="android:background">@android:color/white</item>
-        <item name="android:paddingTop">@dimen/scoreboard_fields_top_padding</item>
-        <item name="android:paddingBottom">@dimen/scoreboard_fields_top_padding</item>
+        <item name="android:paddingTop">@dimen/scoreboard_top_bottom_padding</item>
+        <item name="android:paddingBottom">@dimen/scoreboard_top_bottom_padding</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
     <style name="standings_table">

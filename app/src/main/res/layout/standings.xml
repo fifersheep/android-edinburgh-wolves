@@ -17,20 +17,22 @@ android:background="@color/white">
             android:id="@+id/textView_home_team_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/textView_left_score_new"
+            android:layout_toLeftOf="@+id/textView_left_score_new"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:text="EDI"
+            android:gravity="center_horizontal"
+            android:text="@string/default_home_team_acronym"
             android:textSize="@dimen/scoreboard_team_name" />
 
         <TextView
             android:id="@+id/textView_left_score_new"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@id/textView_vs_new"
+            android:layout_toLeftOf="@+id/textView_vs_new"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/scoreboard_fields_side_padding"
             android:paddingRight="@dimen/scoreboard_fields_side_padding"
-            android:text="17"
+            android:text="@string/default_home_score"
             android:textSize="@dimen/scoreboard_score"
             android:textColor="@android:color/white"/>
 
@@ -60,7 +62,9 @@ android:background="@color/white">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/textView_right_score_new"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
             android:text="@string/default_away_team_acronym"
             android:textSize="@dimen/scoreboard_team_name" />
         </RelativeLayout>
