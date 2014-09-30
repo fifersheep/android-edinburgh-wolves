@@ -3,7 +3,9 @@
     <color name="standings_header">#5999</color>
     <color name="menu_background">@color/dark_grey</color>
 
+    <!-- Colour Palette -->
 	<color name="white">#FFF</color>
+    <color name="grey">#DDD</color>
     <color name="dark_grey">#191919</color>
     <color name="light_grey">#222</color>
     <color name="red">#900</color>

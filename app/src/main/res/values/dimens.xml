@@ -13,11 +13,14 @@
 
     <dimen name="scoreboard_team_name"> 25sp </dimen>
     <dimen name="scoreboard_score"> 32sp </dimen>
-    <dimen name="scoreboard_vs"> 16sp </dimen>
+    <dimen name="scoreboard_vs"> 24sp </dimen>
     <dimen name="scoreboard_top_bottom_padding"> 5dp </dimen>
     <dimen name="scoreboard_fields_side_padding"> 12dp </dimen>
 
     <dimen name="border_width"> 0.1dp </dimen>
     <dimen name="border_offset"> -1dp </dimen>
     <dimen name="standings_cell_padding"> 4dp </dimen>
+    <dimen name="standings_title_text_size"> 18sp </dimen>
+    <dimen name="standings_table_position"> 21sp </dimen>
+    <dimen name="standings_table_team_name"> 18sp </dimen>
 </resources>

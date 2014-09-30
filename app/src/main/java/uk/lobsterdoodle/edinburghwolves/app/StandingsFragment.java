@@ -27,16 +27,20 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
+import uk.lobsterdoodle.edinburghwolves.app.core.Fixture;
+import uk.lobsterdoodle.edinburghwolves.app.core.Match;
 import uk.lobsterdoodle.edinburghwolves.app.core.Team;
 
 public class StandingsFragment extends Fragment {
 
-    TextView mTvData;
+    private static String TAG = StandingsFragment.class.getSimpleName();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,34 +73,33 @@ public class StandingsFragment extends Fragment {
         return isAvailable;
     }
 
-    private class GetDivisionData extends AsyncTask<Void, Void, ArrayList<Team>> {
+    private class GetDivisionData extends AsyncTask<Void, Void, Document> {
         String mostRecentScore = "0 - 0";
         String mostRecentCompetitor = "Glasgow Tigers";
         Boolean areWolvesHome = true;
 
         @Override
-        protected ArrayList<Team> doInBackground(Void... arg0) {
+        protected Document doInBackground(Void... arg0) {
             final String url = "http://www.bafanl.co.uk/team/43";
-            ArrayList<Team> standings = new ArrayList<Team>();
+            Document doc = null;
 
             try {
-                Document doc = Jsoup.connect(url).timeout(30 * 1000).get();
-                getStandingsTable(standings, doc);
-                getMostRecentGameResults(doc);
+                doc = Jsoup.connect(url).timeout(30 * 1000).get();
             } catch (IOException e) {
-                mTvData.setText("IOException: " + e);
-                e.printStackTrace();
+                Log.e(TAG, "Could not get HTML document");
             }
-            return standings;
+            return doc;
         }
 
         @Override
-        protected void onPostExecute(ArrayList<Team> standings) {
+        protected void onPostExecute(Document doc) {
+            List<Team> standings = getTeamStandings(doc);
+            Match mostRecentMatch = getMostRecentGameResults(doc);
             if (standings.isEmpty()) {
                 Toast.makeText(getActivity(), "No new standings data available", Toast.LENGTH_LONG).show();
             } else {
                 setScoreboard();
-                setStandings(standings);
+                setStandings(standings); // TODO: fix these set/save methods
                 saveStandings(standings);
             }
         }
@@ -105,18 +108,19 @@ public class StandingsFragment extends Fragment {
             try {
                 URL twitterFeedUrl = new URL("https://api.twitter.com/1/statuses/user_timeline.json?id=EdinburghWolves&count=1");
             } catch (MalformedURLException ex) {
-                Log.e(MainActivity.TAG, "Malformed URL Exception: " + ex);
+                Log.e(TAG, "Malformed URL Exception: " + ex);
             }
         }
 
-        private void getStandingsTable(ArrayList<Team> teams, Document doc) {
+        private List<Team> getTeamStandings(Document doc) {
             // Pulls standings table data
             Element standingsTable = doc.select("table[class=footable]").first();
             Elements rows;
             if (standingsTable != null) {
                 rows = standingsTable.select("tr");
-            } else { return; }
+            } else { return null; }
 
+            ArrayList<Team> teams = new ArrayList<Team>();
             // For each row (except header), create a new 'Team' object
             for (Element row : rows.subList(1, rows.size())) {
                 Elements tds = row.select("td");
@@ -125,6 +129,7 @@ public class StandingsFragment extends Fragment {
                         .text(), tds.get(5).text(), tds.get(6)
                         .text()));
             }
+            return Collections.unmodifiableList(teams);
         }
 
         private void setScoreboard() {
@@ -188,13 +193,13 @@ public class StandingsFragment extends Fragment {
             }
         }
 
-        private void getMostRecentGameResults(Document doc) {
+        private Match getMostRecentGameResults(Document doc) {
             // Pulls most recent game result
             Element fixturesDiv = doc.select("div#fixtures").first();
             Elements listItems;
             if (fixturesDiv != null) {
                 listItems = fixturesDiv.select("li");
-            } else { return; }
+            } else { return null; }
 
             for (Element listItem : listItems) {
                 String dateString = listItem.select("span").first().text() + "/2013";
@@ -214,12 +219,23 @@ public class StandingsFragment extends Fragment {
                         mostRecentScore = score.substring(5, (score.length() - 1));
                         mostRecentCompetitor = listItem.select("a").first().text();
                         areWolvesHome = !listItem.text().contains("@");
+
+                        // New format
+                        Team wolves = new Team("Edinburgh Wolves");
+                        Team opponent = new Team(mostRecentCompetitor);
+                        if (areWolvesHome) {
+                            return new Match(
+                                    new Fixture("29/09/2014", wolves, opponent), 17, 16);
+                        } else {
+                            return new Match(
+                                    new Fixture("29/09/2014", opponent, wolves), 16, 17);
+                        }
                     }
                 } catch (ParseException e) {
-                    Log.e(MainActivity.TAG, "Parse Exception: " + e);
-                    e.printStackTrace();
+                    Log.e(TAG, "Parse Exception: " + e);
                 }
             }
+            return null;
         }
 
         private void saveStandings(ArrayList<Team> teams) {
