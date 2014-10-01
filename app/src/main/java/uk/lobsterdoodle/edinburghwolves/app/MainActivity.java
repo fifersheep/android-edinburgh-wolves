@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity
      */
     private CharSequence mTitle;
 
-    public static final String TAG = "Wolves";
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
