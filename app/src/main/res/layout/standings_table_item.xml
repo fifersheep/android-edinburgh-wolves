@@ -1,51 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/standings_item_grid"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    app:columnCount="10"
-    android:id="@+id/">
+    android:gravity="center_vertical">
 
     <TextView
-        app:layout_columnSpan="1"
         android:id="@+id/standings_table_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="@dimen/standings_table_position_column_padding"
         android:text="1"
-        android:textColor="@color/dark_grey"
-        android:textSize="@dimen/standings_table_position"
-        app:layout_column="0" />
+        android:textColor="#AAA"
+        android:textSize="@dimen/standings_table_position_text_size" />
 
     <TextView
-        app:layout_columnSpan="6"
-        app:layout_gravity="fill"
         android:id="@+id/standings_table_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/standings_table_position"
+        android:layout_toLeftOf="@+id/standings_table_wins"
+        android:layout_centerVertical="true"
         android:text="Edinburgh Wolves"
         android:textColor="@color/dark_grey"
-        android:textSize="@dimen/standings_table_team_name"
-        app:layout_column="1" />
+        android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
-        app:layout_columnSpan="1"
         android:id="@+id/standings_table_wins"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/standings_table_percentage"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/standings_table_stats_column_padding"
         android:text="8-2-0"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/standings_table_team_name"
-        app:layout_column="7" />
+        android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
-        app:layout_columnSpan="1"
         android:id="@+id/standings_table_percentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/standings_table_points"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/standings_table_stats_column_padding"
         android:text=".667"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/standings_table_team_name"
-        app:layout_column="8" />
+        android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
-        app:layout_columnSpan="1"
         android:id="@+id/standings_table_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/standings_table_stats_column_padding"
         android:text="168/121"
         android:textColor="@color/light_grey"
-        android:textSize="@dimen/standings_table_team_name"
-        app:layout_column="9" />
-</android.support.v7.widget.GridLayout>
+        android:textSize="@dimen/standings_table_team_name_text_size" />
+</RelativeLayout>
