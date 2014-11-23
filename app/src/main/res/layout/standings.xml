@@ -67,310 +67,33 @@ android:background="@color/grey">
             android:gravity="center_horizontal"
             android:text="@string/default_away_team_acronym"
             android:textSize="@dimen/scoreboard_team_name" />
-        </RelativeLayout>
+    </RelativeLayout>
 
-<TextView android:id="@+id/standings_header"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/scoreboard_layout"
-    android:padding="10dp"
-    android:text="@string/standings_title"
-    android:textSize="@dimen/standings_title_text_size"
-    android:textColor="@color/dark_grey"/>
-
-<LinearLayout
-    android:id="@+id/standings_table"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/standings_header"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:padding="7dp"
-    android:background="@color/white" >
-
-    <include layout="@layout/standings_table_item" />
-
-</LinearLayout>
-
-<TableLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:layout_below="@+id/standings_table"
-    android:background="@drawable/standings_border"
-    android:layout_marginLeft="@dimen/body_margin"
-    android:layout_marginRight="@dimen/body_margin"
-    android:layout_marginTop="0dp"
-    android:id="@+id/tableLayout">
-
-    <TableRow
-        android:id="@+id/tableRow_header"
+    <LinearLayout
+        android:id="@+id/standings_table"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:background="@color/standings_header">
+        android:layout_below="@+id/scoreboard_layout"
+        android:layout_margin="10dp"
+        android:padding="@dimen/standings_table_row_spacing"
+        android:background="@color/white" >
 
         <TextView
-            android:id="@+id/textView_standingsName_head"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
+            android:layout_marginBottom="6dp"
+            android:text="STANDINGS"
+            android:textSize="16sp"
+            android:textColor="#AAA"/>
 
-        <TextView
-            android:id="@+id/textView_standingsWins_head"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
+            android:layout_height="1dp"
+            android:background="#AAA"/>
 
-        <TextView
-            android:id="@+id/textView_standingsPct_head"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_header_pct" />
+        <include layout="@layout/standings_table_item" />
 
-        <TextView
-            android:id="@+id/textView_standingsForagg_head"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_header_foragg" />
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow_first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-        <TextView
-            android:id="@+id/textView_standingsName_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow_second"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView_standingsName_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow_third"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView_standingsName_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow_fourth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView_standingsName_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow_fifth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView_standingsName_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-    <TableRow
-        android:id="@+id/tableRow_sixth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal" >
-
-        <TextView
-            android:id="@+id/textView_standingsName_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            style="@style/standings_table"
-            android:text="@string/standings_default_team" />
-
-        <TextView
-            android:id="@+id/textView_standingsWins_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_wlt" />
-
-        <TextView
-            android:id="@+id/textView_standingsPct_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_pct" />
-
-        <TextView
-            android:id="@+id/textView_standingsForagg_6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            style="@style/standings_table"
-            android:text="@string/standings_default_foragg" />
-    </TableRow>
-</TableLayout>
+    </LinearLayout>
 
 </RelativeLayout>

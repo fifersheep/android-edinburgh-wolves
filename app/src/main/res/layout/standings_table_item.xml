@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/standings_item_grid"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:gravity="center_vertical">
+    android:layout_marginTop="@dimen/standings_table_row_spacing">
 
     <TextView
         android:id="@+id/standings_table_position"
