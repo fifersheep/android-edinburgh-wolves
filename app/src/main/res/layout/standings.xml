@@ -83,15 +83,16 @@ android:background="@color/grey">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:text="STANDINGS"
+            android:text="@string/standings_title"
             android:textSize="16sp"
-            android:textColor="#AAA"/>
+            android:textColor="@color/red"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#AAA"/>
 
+        <!-- need to make table columns always align! -->
         <include layout="@layout/standings_table_item" />
 
     </LinearLayout>
