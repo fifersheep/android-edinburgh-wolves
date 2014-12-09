@@ -4,11 +4,13 @@ android:layout_width="match_parent" android:layout_height="match_parent"
 android:id="@+id/background_layout"
 android:background="@color/grey">
 
+    <include layout="@layout/toolbar" android:id="@+id/toolbar_layout"/>
+
     <RelativeLayout
         android:id="@+id/scoreboard_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/toolbar_layout"
         android:background="@color/dark_grey"
         android:paddingTop="@dimen/scoreboard_top_bottom_padding"
         android:paddingBottom="@dimen/scoreboard_top_bottom_padding" >

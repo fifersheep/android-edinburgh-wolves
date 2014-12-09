@@ -95,13 +95,13 @@ public class StandingsFragment extends Fragment {
         protected void onPostExecute(Document doc) {
             List<Team> standings = getTeamStandings(doc);
             Match mostRecentMatch = getMostRecentGameResults(doc);
-            if (standings.isEmpty()) {
-                Toast.makeText(getActivity(), "No new standings data available", Toast.LENGTH_LONG).show();
-            } else {
-                setScoreboard();
-                setStandings(standings); // TODO: fix these set/save methods
-                saveStandings(standings);
-            }
+//            if (standings.isEmpty()) {
+//                Toast.makeText(getActivity(), "No new standings data available", Toast.LENGTH_LONG).show();
+//            } else {
+//                setScoreboard();
+//                setStandings(standings); // TODO: fix these set/save methods
+//                saveStandings(standings);
+//            }
         }
 
         private void getTwitterPost() {
@@ -165,7 +165,7 @@ public class StandingsFragment extends Fragment {
             tvRightScore.setText(rightScore);
         }
 
-        private void setStandings(ArrayList<Team> teams) {
+        private void setStandings(List<Team> teams) {
             for (int i = 0; i < 6; i++) {
                 String nameTarget = ("textView_standingsName_" + (i + 1));
                 String wldTarget = ("textView_standingsWins_" + (i + 1));
@@ -238,7 +238,7 @@ public class StandingsFragment extends Fragment {
             return null;
         }
 
-        private void saveStandings(ArrayList<Team> teams) {
+        private void saveStandings(List<Team> teams) {
             //Context context = getActivity();
             //SharedPreferences sharedPref = context.getSharedPreferences(
             //        getString(R.string.preference_file_key), Context.MODE_PRIVATE);
