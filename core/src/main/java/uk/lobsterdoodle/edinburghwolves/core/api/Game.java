@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app.core;
+package uk.lobsterdoodle.edinburghwolves.core.api;
 
 /** Created by Scott Laing
  *  on 29/09/2014 @ 01:02 */

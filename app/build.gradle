@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    compile project(':core')
     compile 'com.android.support:support-v4:21.0.2'
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.android.support:gridlayout-v7:19.1.0'

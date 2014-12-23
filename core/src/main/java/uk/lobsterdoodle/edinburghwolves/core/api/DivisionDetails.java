@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app.core;
+package uk.lobsterdoodle.edinburghwolves.core.api;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,6 @@ import java.util.List;
  */
 
 public class DivisionDetails {
-    private TeamStandings mTeamStandings = new TeamStandings();
     private List<Fixture> mFixtures = new ArrayList<Fixture>();
     private List<Match> mMatches = new ArrayList<Match>();
 

@@ -34,9 +34,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import uk.lobsterdoodle.edinburghwolves.app.core.Fixture;
-import uk.lobsterdoodle.edinburghwolves.app.core.Match;
-import uk.lobsterdoodle.edinburghwolves.app.core.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.Fixture;
+import uk.lobsterdoodle.edinburghwolves.core.api.Match;
+import uk.lobsterdoodle.edinburghwolves.core.api.Team;
 
 public class StandingsFragment extends Fragment {
 
@@ -188,7 +188,7 @@ public class StandingsFragment extends Fragment {
 
                 tvName.setText(team.getName());
                 tvWld.setText(team.getWinsLosesTies());
-                tvPct.setText(team.getPct());
+                tvPct.setText(team.getWinPercentage());
                 tvForagg.setText(team.getGoalsForAndAgainst());
             }
         }

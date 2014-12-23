@@ -1,9 +1,9 @@
-package uk.lobsterdoodle.edinburghwolves.app.core;
+package uk.lobsterdoodle.edinburghwolves.core.api;
 
 /** Created by Scott Laing
  *  on 29/09/2014 @ 00:48 */
 
-public class Fixture implements Game{
+public class Fixture implements Game {
     private Team mHomeTeam;
     private Team mAwayTeam;
     private String mDate;
