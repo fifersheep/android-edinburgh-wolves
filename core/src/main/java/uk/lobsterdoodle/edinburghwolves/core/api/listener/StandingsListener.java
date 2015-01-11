@@ -8,6 +8,7 @@ import uk.lobsterdoodle.edinburghwolves.core.api.Team;
  */
 public interface StandingsListener {
     public void addTeam(Team team);
+    public void clearStandingsTable();
     public void setRecentGameHomeTeam(String teamName);
     public void setRecentGameAwayTeam(String teamName);
     public void setRecentGameHomeScore(String score);

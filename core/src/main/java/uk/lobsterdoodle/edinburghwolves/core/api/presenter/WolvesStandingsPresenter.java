@@ -36,14 +36,25 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
 
     @Override
     public void displayStandings(Document document) {
+        listener.clearStandingsTable();
+
         Element standingsTable = document.select("table[class=footable]").first();
         Elements rows;
         if (standingsTable != null) {
             rows = standingsTable.select("tr");
             for (Element row : rows.subList(1, rows.size())) {
+                String position = String.valueOf(rows.indexOf(row));
                 Elements tds = row.select("td");
 
                 Team team = new Team(tds.get(0).text(), 2);
+                team.setStanding(
+                        position,
+                        tds.get(1).text(),
+                        tds.get(2).text(),
+                        tds.get(3).text(),
+                        tds.get(4).text(),
+                        tds.get(5).text(),
+                        tds.get(6).text());
                 listener.addTeam(team);
             }
         }

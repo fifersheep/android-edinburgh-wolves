@@ -72,7 +72,7 @@ android:background="@color/grey">
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/standings_table"
+        android:id="@+id/standings_table_card"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,8 +94,23 @@ android:background="@color/grey">
             android:layout_height="1dp"
             android:background="#AAA"/>
 
-        <!-- need to make table columns always align! -->
-        <include layout="@layout/standings_table_item" />
+        <LinearLayout
+            android:id="@+id/standings_table"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:padding="0dp">
+
+            <!-- need to make table columns always align! -->
+            <include layout="@layout/standings_table_item" />
+            <include layout="@layout/standings_table_item" />
+            <include layout="@layout/standings_table_item" />
+            <include layout="@layout/standings_table_item" />
+            <include layout="@layout/standings_table_item" />
+            <include layout="@layout/standings_table_item" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

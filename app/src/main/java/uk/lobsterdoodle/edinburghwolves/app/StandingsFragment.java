@@ -67,6 +67,12 @@ public class StandingsFragment extends Fragment implements StandingsListener {
     }
 
     @Override
+    public void clearStandingsTable() {
+        final LinearLayout standingsTable = (LinearLayout) getActivity().findViewById(R.id.standings_table);
+        standingsTable.removeAllViews();
+    }
+
+    @Override
     public void setRecentGameHomeTeam(String teamName) {
         TextView homeTeam = (TextView) getActivity().findViewById(R.id.textView_home_team);
         homeTeam.setText(teamName);
