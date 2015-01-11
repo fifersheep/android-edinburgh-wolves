@@ -16,10 +16,10 @@ android:background="@color/grey">
         android:paddingBottom="@dimen/scoreboard_top_bottom_padding" >
 
         <TextView
-            android:id="@+id/textView_home_team_new"
+            android:id="@+id/textView_away_team"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/textView_left_score_new"
+            android:layout_toLeftOf="@+id/textView_away_score"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:gravity="center_horizontal"
@@ -27,10 +27,10 @@ android:background="@color/grey">
             android:textSize="@dimen/scoreboard_team_name" />
 
         <TextView
-            android:id="@+id/textView_left_score_new"
+            android:id="@+id/textView_away_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/textView_vs_new"
+            android:layout_toLeftOf="@+id/textView_vs"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/scoreboard_fields_side_padding"
             android:paddingRight="@dimen/scoreboard_fields_side_padding"
@@ -39,7 +39,7 @@ android:background="@color/grey">
             android:textColor="@android:color/white"/>
 
         <TextView
-            android:id="@+id/textView_vs_new"
+            android:id="@+id/textView_vs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -48,10 +48,10 @@ android:background="@color/grey">
             android:textSize="@dimen/scoreboard_vs"  />
 
         <TextView
-            android:id="@+id/textView_right_score_new"
+            android:id="@+id/textView_home_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/textView_vs_new"
+            android:layout_toRightOf="@id/textView_vs"
             android:layout_centerVertical="true"
             android:paddingLeft="@dimen/scoreboard_fields_side_padding"
             android:paddingRight="@dimen/scoreboard_fields_side_padding"
@@ -60,10 +60,10 @@ android:background="@color/grey">
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/textView_away_team_new"
+            android:id="@+id/textView_home_team"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/textView_right_score_new"
+            android:layout_toRightOf="@id/textView_home_score"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:gravity="center_horizontal"

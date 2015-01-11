@@ -17,7 +17,7 @@
     <string name="default_away_team">Glasgow Tigers</string>
     <string name="default_away_team_acronym">GLA</string>
     <string name="default_away_score">16</string>
-    <string name="default_scoreboard_center">-</string>
+    <string name="default_scoreboard_center">\@</string>
 
     <string name="standings_title">STANDINGS</string>
     <string name="standings_header_pct">Pct</string>
