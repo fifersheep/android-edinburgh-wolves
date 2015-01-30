@@ -15,9 +15,10 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.CompletedFixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.Fixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.Fixture;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.TeamStanding;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 
 /**
@@ -46,15 +47,14 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
                 String position = String.valueOf(rows.indexOf(row));
                 Elements tds = row.select("td");
 
-                Team team = new Team(tds.get(0).text(), 2);
-                team.setStanding(
+                Team team = new Team(tds.get(0).text(), new TeamStanding(
                         position,
                         tds.get(1).text(),
                         tds.get(2).text(),
                         tds.get(3).text(),
                         tds.get(4).text(),
                         tds.get(5).text(),
-                        tds.get(6).text());
+                        tds.get(6).text()));
                 listener.addTeam(team);
             }
         }
@@ -71,8 +71,8 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
         teamCodes.put("Glasgow Tigers", "GLA");
 
         CompletedFixture game = getMostRecentGameResults(document);
-        final String homeTeam = teamCodes.get(game.getHomeTeam().getName());
-        final String awayTeam = teamCodes.get(game.getAwayTeam().getName());
+        final String homeTeam = teamCodes.get(game.getHomeTeam().currentName());
+        final String awayTeam = teamCodes.get(game.getAwayTeam().currentName());
 
 
         listener.setRecentGameHomeTeam(homeTeam);
@@ -101,11 +101,11 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
             Team awayTeam;
 
             if (wolvesAreAtHome) {
-                homeTeam = new Team("Edinburgh Wolves", 0);
-                awayTeam = new Team(competitor, 0);
+                homeTeam = new Team("Edinburgh Wolves", null);
+                awayTeam = new Team(competitor, null);
             } else {
-                homeTeam = new Team(competitor, 0);
-                awayTeam = new Team("Edinburgh Wolves", 0);
+                homeTeam = new Team(competitor, null);
+                awayTeam = new Team("Edinburgh Wolves", null);
             }
 
             fixture = new Fixture(dateString, homeTeam, awayTeam);

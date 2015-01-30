@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
 import uk.lobsterdoodle.edinburghwolves.app.standings.StandingsRow;
-import uk.lobsterdoodle.edinburghwolves.core.api.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.WolvesStandingsPresenter;

@@ -7,8 +7,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import uk.lobsterdoodle.edinburghwolves.app.R;
-import uk.lobsterdoodle.edinburghwolves.core.api.StandingsView;
-import uk.lobsterdoodle.edinburghwolves.core.api.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.view.StandingsView;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 
 /**
  * Created by Scott Laing on 06-Jan-2015
@@ -27,20 +27,20 @@ public class StandingsRow extends RelativeLayout implements StandingsView {
         final View layout = LayoutInflater.from(context).inflate(R.layout.standings_table_item, this, true);
 
         TextView positionTextView = (TextView) layout.findViewById(R.id.standings_table_position);
-        positionTextView.setText(team.getPosition());
+        positionTextView.setText(team.currentPosition());
 
         TextView teamNameTextView = (TextView) layout.findViewById(R.id.standings_table_team);
-        teamNameTextView.setText(team.getName());
+        teamNameTextView.setText(team.currentName());
 
         TextView winsTextView = (TextView) layout.findViewById(R.id.standings_table_wins);
-        String wlt = team.getWins() + "-" + team.getLoses() + "-" + team.getTies();
+        String wlt = team.currentWins() + "-" + team.currentLoses() + "-" + team.currentTies();
         winsTextView.setText(wlt);
 
         TextView percentageTextView = (TextView) layout.findViewById(R.id.standings_table_percentage);
-        percentageTextView.setText(team.getWinPercentage());
+        percentageTextView.setText(team.currentWinPercentage());
 
         TextView pointsTextView = (TextView) layout.findViewById(R.id.standings_table_points);
-        String points = team.getGoalsFor() + " / " + team.getGoalsAgainst();
+        String points = team.currentGoalsFor() + " / " + team.currentGoalsAgainst();
         pointsTextView.setText(points);
     }
 }

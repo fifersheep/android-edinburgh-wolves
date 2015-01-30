@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.core.api;
+package uk.lobsterdoodle.edinburghwolves.core.api.model;
 
 /** Created by Scott Laing
  *  on 29/09/2014 @ 00:40 */

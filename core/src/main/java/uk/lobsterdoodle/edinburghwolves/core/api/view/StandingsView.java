@@ -1,6 +1,6 @@
-package uk.lobsterdoodle.edinburghwolves.core.api;
+package uk.lobsterdoodle.edinburghwolves.core.api.view;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.Team;
+import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 
 /**
  * Created by Scott Laing on 06-Jan-2015
