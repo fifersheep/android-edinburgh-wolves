@@ -1,6 +1,7 @@
 package uk.lobsterdoodle.edinburghwolves.app.network;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,6 +16,7 @@ import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
  */
 public class DivisionDataDownloadTask extends AsyncTask<Void, Void, Document> {
     final private StandingsPresenter standingsPresenter;
+    private static String TAG = DivisionDataDownloadTask.class.getSimpleName();
 
     public DivisionDataDownloadTask(StandingsPresenter standingsPresenter) {
         this.standingsPresenter = standingsPresenter;
@@ -28,7 +30,7 @@ public class DivisionDataDownloadTask extends AsyncTask<Void, Void, Document> {
             String downloadUrl = "http://web.archive.org/web/20131031114528/http://www.bafanl.co.uk/team/43";
             doc = Jsoup.connect(downloadUrl).timeout(30 * 1000).get();
         } catch (IOException e) {
-            // Do something
+            Log.e(TAG, "Failed to download HTML document", e);
         }
 
         return doc;
