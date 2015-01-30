@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app;
+package uk.lobsterdoodle.edinburghwolves.app.standings;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
-import uk.lobsterdoodle.edinburghwolves.app.standings.StandingsRow;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
