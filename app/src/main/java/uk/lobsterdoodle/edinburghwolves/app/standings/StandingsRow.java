@@ -7,14 +7,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import uk.lobsterdoodle.edinburghwolves.app.R;
-import uk.lobsterdoodle.edinburghwolves.core.api.view.StandingsView;
+import uk.lobsterdoodle.edinburghwolves.core.api.view.StandingsRowView;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 
 /**
  * Created by Scott Laing on 06-Jan-2015
  * Copyright (c) Scott Laing 2015. All rights reserved.
  */
-public class StandingsRow extends RelativeLayout implements StandingsView {
+public class StandingsRow extends RelativeLayout implements StandingsRowView {
 
     private Context context;
 
