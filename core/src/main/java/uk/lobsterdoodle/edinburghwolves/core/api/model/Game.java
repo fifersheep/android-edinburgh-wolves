@@ -5,8 +5,6 @@ package uk.lobsterdoodle.edinburghwolves.core.api.model;
 
 public interface Game {
     public Team getHomeTeam();
-
     public Team getAwayTeam();
-
     public String getDate();
 }

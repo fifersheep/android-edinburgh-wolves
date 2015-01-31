@@ -27,8 +27,6 @@ import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
  */
 public class WolvesStandingsPresenter implements StandingsPresenter {
 
-    final private int DATE_IN_PAST = -1;
-
     private final StandingsListener listener;
 
     public WolvesStandingsPresenter(StandingsListener listener) {
@@ -132,6 +130,7 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
     }
 
     private String getMostRecentScore(String scoreData, String dateString) {
+        int DATE_IN_PAST = -1;
         String result = null;
         Date pulledDate = null;
         try {
