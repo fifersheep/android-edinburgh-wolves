@@ -62,14 +62,19 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
     public void displayMostRecentGame(Document document) {
 
         CompletedFixture game = getMostRecentGameResults(document);
-        final String homeTeam = game.getHomeTeam().currentName();
-        final String awayTeam = game.getAwayTeam().currentName();
+        final String homeTeam = lastWordOf(game.getHomeTeam().currentName());
+        final String awayTeam = lastWordOf(game.getAwayTeam().currentName());
 
         listener.setRecentGameHomeTeam(homeTeam);
         listener.setRecentGameAwayTeam(awayTeam);
 
         listener.setRecentGameHomeScore(String.valueOf(game.getHomeTeamScore()));
         listener.setRecentGameAwayScore(String.valueOf(game.getAwayTeamScore()));
+    }
+
+    private String lastWordOf(String original) {
+        final int beginIndex = original.lastIndexOf(" ") + 1;
+        return original.substring(beginIndex);
     }
 
     private CompletedFixture getMostRecentGameResults(Document doc) {
