@@ -31,7 +31,7 @@ public class StandingsFragment extends Fragment implements StandingsListener {
 
         presenter = new WolvesStandingsPresenter(this);
 
-        if (isNetworkAvailable()) {
+        if (networkIsAvailable()) {
             //ExecutorService executor = Executors.newSingleThreadExecutor();
             new DivisionDataDownloadTask(presenter).execute();
             //executor.execute(divisionDataRunner);
@@ -45,7 +45,7 @@ public class StandingsFragment extends Fragment implements StandingsListener {
         return inflater.inflate(R.layout.standings, container, false);
     }
 
-    protected boolean isNetworkAvailable() {
+    protected boolean networkIsAvailable() {
         ConnectivityManager manager = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = manager.getActiveNetworkInfo();
