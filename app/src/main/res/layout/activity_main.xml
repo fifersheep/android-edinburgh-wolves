@@ -30,14 +30,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_horizontal"
-                android:text="@string/default_home_team_acronym"
+                android:text="@string/default_home_team"
                 android:textSize="@dimen/scoreboard_team_name" />
 
             <TextView
                 android:id="@+id/textView_away_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/textView_vs"
+                android:layout_toLeftOf="@+id/view_scoreboard_center"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/scoreboard_fields_side_padding"
                 android:paddingRight="@dimen/scoreboard_fields_side_padding"
@@ -45,20 +45,17 @@
                 android:textSize="@dimen/scoreboard_score"
                 android:textColor="@android:color/white"/>
 
-            <TextView
-                android:id="@+id/textView_vs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:gravity="center"
-                android:text="@string/default_scoreboard_center"
-                android:textSize="@dimen/scoreboard_vs"  />
+            <View
+                android:id="@+id/view_scoreboard_center"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:layout_centerInParent="true" />
 
             <TextView
                 android:id="@+id/textView_home_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/textView_vs"
+                android:layout_toRightOf="@id/view_scoreboard_center"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/scoreboard_fields_side_padding"
                 android:paddingRight="@dimen/scoreboard_fields_side_padding"
@@ -74,7 +71,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_horizontal"
-                android:text="@string/default_away_team_acronym"
+                android:text="@string/default_away_team"
                 android:textSize="@dimen/scoreboard_team_name" />
         </RelativeLayout>
 

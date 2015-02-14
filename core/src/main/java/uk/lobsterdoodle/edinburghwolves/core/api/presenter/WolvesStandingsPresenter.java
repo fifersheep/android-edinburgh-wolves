@@ -60,18 +60,10 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
 
     @Override
     public void displayMostRecentGame(Document document) {
-        HashMap<String, String> teamCodes = new HashMap<String, String>();
-        teamCodes.put("Clyde Valley Blackhawks", "CLY");
-        teamCodes.put("Aberdeen Roughnecks", "ABD");
-        teamCodes.put("Dundee Hurricanes", "DUN");
-        teamCodes.put("Edinburgh Wolves", "EDI");
-        teamCodes.put("West Coast Trojans", "WCT");
-        teamCodes.put("Glasgow Tigers", "GLA");
 
         CompletedFixture game = getMostRecentGameResults(document);
-        final String homeTeam = teamCodes.get(game.getHomeTeam().currentName());
-        final String awayTeam = teamCodes.get(game.getAwayTeam().currentName());
-
+        final String homeTeam = game.getHomeTeam().currentName();
+        final String awayTeam = game.getAwayTeam().currentName();
 
         listener.setRecentGameHomeTeam(homeTeam);
         listener.setRecentGameAwayTeam(awayTeam);
