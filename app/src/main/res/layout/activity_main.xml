@@ -17,7 +17,6 @@
             android:id="@+id/scoreboard_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar_layout"
             android:background="?attr/colorPrimary"
             android:paddingTop="@dimen/scoreboard_top_bottom_padding"
             android:paddingBottom="@dimen/scoreboard_top_bottom_padding" >
@@ -78,8 +77,7 @@
         <FrameLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/scoreboard_layout"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <fragment android:id="@+id/navigation_drawer"
