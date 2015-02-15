@@ -29,7 +29,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_horizontal"
-                android:text="@string/default_home_team"
+                tools:text="@string/default_home_team"
                 android:textSize="@dimen/scoreboard_team_name" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/scoreboard_fields_side_padding"
                 android:paddingRight="@dimen/scoreboard_fields_side_padding"
-                android:text="@string/default_home_score"
+                tools:text="@string/default_home_score"
                 android:textSize="@dimen/scoreboard_score"
                 android:textColor="@android:color/white"/>
 
@@ -58,7 +58,7 @@
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/scoreboard_fields_side_padding"
                 android:paddingRight="@dimen/scoreboard_fields_side_padding"
-                android:text="@string/default_away_score"
+                tools:text="@string/default_away_score"
                 android:textSize="@dimen/scoreboard_score"
                 android:textColor="@android:color/white" />
 
@@ -70,7 +70,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_horizontal"
-                android:text="@string/default_away_team"
+                tools:text="@string/default_away_team"
                 android:textSize="@dimen/scoreboard_team_name" />
         </RelativeLayout>
 

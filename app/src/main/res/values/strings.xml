@@ -11,10 +11,10 @@
     <string name="menu_about">About</string>
 
     <string name="default_loading">Loading&#8230; Please Wait</string>
-    <string name="default_home_team">Edinburgh Wolves</string>
+    <string name="default_home_team">Wolves</string>
     <string name="default_home_team_acronym">EDI</string>
     <string name="default_home_score">17</string>
-    <string name="default_away_team">Glasgow Tigers</string>
+    <string name="default_away_team">Tigers</string>
     <string name="default_away_team_acronym">GLA</string>
     <string name="default_away_score">16</string>
     <string name="default_scoreboard_center">\@</string>
