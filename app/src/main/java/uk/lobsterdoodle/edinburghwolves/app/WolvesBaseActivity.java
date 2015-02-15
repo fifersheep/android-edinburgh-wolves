@@ -32,7 +32,7 @@ public abstract class WolvesBaseActivity extends ActionBarActivity
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+                (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
     }
 
     protected abstract int getLayoutResource();
@@ -58,7 +58,6 @@ public abstract class WolvesBaseActivity extends ActionBarActivity
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setTitle(mTitle);
     }
 
@@ -107,7 +106,7 @@ public abstract class WolvesBaseActivity extends ActionBarActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar_layout);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
         }
     }
 }
