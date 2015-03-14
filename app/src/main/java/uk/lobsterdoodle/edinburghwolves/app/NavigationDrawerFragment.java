@@ -60,6 +60,7 @@ public class NavigationDrawerFragment extends Fragment {
     private int mCurrentSelectedPosition = 0;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+    private String[] menuItems;
 
     public NavigationDrawerFragment() {
     }
@@ -92,12 +93,13 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        mDrawerListView = (ListView) inflater.inflate(
-                R.layout.fragment_menu, container, false);
+        mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_menu, container, false);
 
         if (mDrawerListView != null) {
             mDrawerListView.setBackgroundResource(R.color.menu_background);
         }
+
+
 
         mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -106,15 +108,13 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-//        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-//                getActionBar().getThemedContext(),
-//                android.R.layout.simple_list_item_1,
-//                android.R.id.text1,
-//                new String[]{
-//                        getString(R.string.title_section1),
-//                        getString(R.string.title_section2),
-//                        getString(R.string.title_section3),
-//                }));
+        menuItems = new String[]{
+                getString(R.string.title_section1),
+                getString(R.string.title_section2),
+                getString(R.string.title_section3),
+        };
+
+        mDrawerListView.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, menuItems));
 
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 
