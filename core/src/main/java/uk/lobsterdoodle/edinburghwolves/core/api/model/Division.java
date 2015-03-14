@@ -1,6 +1,7 @@
 package uk.lobsterdoodle.edinburghwolves.core.api.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /** Created by Scott Laing
@@ -8,8 +9,16 @@ import java.util.List;
  */
 
 public class Division {
-    private List<Team> teams = new ArrayList<Team>();
-    private List<Game> games = new ArrayList<Game>();
+    private List<Team> teams = new ArrayList<>();
+    private List<Game> games = new ArrayList<>();
+
+    public void addTeam(Team team) {
+        teams.add(team);
+    }
+
+    public void addGame(Game game) {
+        games.add(game);
+    }
 
     public List<Fixture> getFixtures() {
         List<Fixture> results = new ArrayList<>();
@@ -29,5 +38,9 @@ public class Division {
             }
         }
         return results;
+    }
+
+    public List<Team> getTeams() {
+        return Collections.unmodifiableList(teams);
     }
 }
