@@ -8,6 +8,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
+import uk.lobsterdoodle.edinburghwolves.core.api.data.HtmlDocumentDataExtractor;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
 
 /**
@@ -38,7 +39,8 @@ public class DivisionDataDownloadTask extends AsyncTask<Void, Void, Document> {
 
     @Override
     protected void onPostExecute(Document document) {
-        standingsPresenter.displayStandings(document);
-        standingsPresenter.displayMostRecentGame(document);
+        HtmlDocumentDataExtractor extractor = new HtmlDocumentDataExtractor(document);
+        standingsPresenter.displayStandings(extractor);
+        standingsPresenter.displayMostRecentGame(extractor);
     }
 }

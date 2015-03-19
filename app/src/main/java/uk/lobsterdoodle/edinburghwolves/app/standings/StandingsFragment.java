@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
+import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
@@ -29,7 +30,7 @@ public class StandingsFragment extends Fragment implements StandingsListener {
         super.onCreate(savedInstanceState);
         Context context = getActivity();
 
-        presenter = new WolvesStandingsPresenter(this);
+        presenter = new WolvesStandingsPresenter(this, new SharedPrefsDataRetriever());
 
         if (networkIsAvailable()) {
             //ExecutorService executor = Executors.newSingleThreadExecutor();
