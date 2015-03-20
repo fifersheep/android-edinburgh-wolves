@@ -40,7 +40,7 @@ public class DivisionDataDownloadTask extends AsyncTask<Void, Void, Document> {
     @Override
     protected void onPostExecute(Document document) {
         HtmlDocumentDataExtractor extractor = new HtmlDocumentDataExtractor(document);
-        standingsPresenter.displayStandings(extractor);
-        standingsPresenter.displayMostRecentGame(extractor);
+        standingsPresenter.displayStandings(extractor.teams());
+        standingsPresenter.displayMostRecentGame(extractor.mostRecentGame());
     }
 }

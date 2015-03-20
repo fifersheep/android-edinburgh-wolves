@@ -31,6 +31,8 @@ public class StandingsFragment extends Fragment implements StandingsListener {
         Context context = getActivity();
 
         presenter = new WolvesStandingsPresenter(this, new SharedPrefsDataRetriever());
+        presenter.displaySavedStandings();
+        presenter.displaySavedMostRecentGame();
 
         if (networkIsAvailable()) {
             //ExecutorService executor = Executors.newSingleThreadExecutor();

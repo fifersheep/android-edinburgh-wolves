@@ -1,6 +1,5 @@
 package uk.lobsterdoodle.edinburghwolves.core.api.presenter;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.data.HtmlDocumentDataExtractor;
 import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
@@ -21,22 +20,31 @@ public class WolvesStandingsPresenter implements StandingsPresenter {
     }
 
     @Override
-    public void displayStandings(HtmlDocumentDataExtractor extractor) {
+    public void displaySavedMostRecentGame() {
+        CompletedFixture game = dataRetriever.mostRecentGame();
+        if (game != null) {
+            displayMostRecentGame(game);
+        }
+    }
+
+    @Override
+    public void displaySavedStandings() {
+        Team[] teams = dataRetriever.standings();
+        if (teams != null && teams.length > 0) {
+            displayStandings(teams);
+        }
+    }
+
+    @Override
+    public void displayStandings(Team[] teams) {
         listener.clearStandingsTable();
-        Team[] teams = extractor.teams();
         for (Team team : teams) {
             listener.addTeam(team);
         }
     }
 
     @Override
-    public void displayMostRecentGame(HtmlDocumentDataExtractor extractor) {
-        CompletedFixture game = extractor.mostRecentGame();
-
-        if (game == null) {
-            game = dataRetriever.mostRecentGame();
-        }
-
+    public void displayMostRecentGame(CompletedFixture game) {
         final String homeTeam = lastWordOf(game.getHomeTeam().currentName());
         final String awayTeam = lastWordOf(game.getAwayTeam().currentName());
 

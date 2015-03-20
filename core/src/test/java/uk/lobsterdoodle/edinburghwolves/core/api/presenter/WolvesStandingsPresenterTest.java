@@ -2,7 +2,6 @@ package uk.lobsterdoodle.edinburghwolves.core.api.presenter;
 
 import org.junit.Test;
 import org.mockito.InOrder;
-import org.mockito.Mockito;
 
 import uk.lobsterdoodle.edinburghwolves.core.api.data.HtmlDocumentDataExtractor;
 import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
@@ -11,6 +10,7 @@ import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 
 import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -31,7 +31,7 @@ public class WolvesStandingsPresenterTest {
         when(extractor.teams()).thenReturn(anyFourTeams());
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, anyRetriever());
-        presenter.displayStandings(extractor);
+        presenter.displayStandings(extractor.teams());
 
         verify(listener, times(4)).addTeam(anyTeam());
     }
@@ -39,12 +39,10 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void the_add_team_method_clears_existing_teams_first() {
         StandingsListener listener = mock(StandingsListener.class);
-        Mockito.doNothing().when(listener).clearStandingsTable();
-        HtmlDocumentDataExtractor extractor = mock(HtmlDocumentDataExtractor.class);
-        when(extractor.teams()).thenReturn(anyFourTeams());
+        doNothing().when(listener).clearStandingsTable();
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, anyRetriever());
-        presenter.displayStandings(extractor);
+        presenter.displayStandings(anyFourTeams());
 
         InOrder inOrder = inOrder(listener);
         inOrder.verify(listener).clearStandingsTable();
@@ -54,37 +52,48 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void the_most_recent_game_is_displayed_correctly_when_one_exists() {
         StandingsListener listener = mock(StandingsListener.class);
-        HtmlDocumentDataExtractor extractor = mock(HtmlDocumentDataExtractor.class);
-        CompletedFixture game = anyCompletedFixture();
-        when(extractor.mostRecentGame()).thenReturn(game);
 
         SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
-        presenter.displayMostRecentGame(extractor);
+        presenter.displayMostRecentGame(anyCompletedFixture());
 
-        verify(listener).setRecentGameHomeTeam("Team");
-        verify(listener).setRecentGameHomeScore("14");
-        verify(listener).setRecentGameAwayTeam("Team");
-        verify(listener).setRecentGameAwayScore("7");
+        verifyMostRecentGameLoaded(listener);
     }
 
     @Test
-    public void the_most_recent_saved_game_is_not_displayed_when_one_does_not_exists() {
+    public void the_saved_most_recent_game_is_displayed() {
         StandingsListener listener = mock(StandingsListener.class);
-        HtmlDocumentDataExtractor extractor = mock(HtmlDocumentDataExtractor.class);
-        when(extractor.mostRecentGame()).thenReturn(null);
         SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
         CompletedFixture game = anyCompletedFixture();
         when(dataRetriever.mostRecentGame()).thenReturn(game);
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
-        presenter.displayMostRecentGame(extractor);
+        presenter.displaySavedMostRecentGame();
 
         verify(dataRetriever).mostRecentGame();
-        verify(listener).setRecentGameHomeTeam("Team");
-        verify(listener).setRecentGameHomeScore("14");
-        verify(listener).setRecentGameAwayTeam("Team");
-        verify(listener).setRecentGameAwayScore("7");
+        verifyMostRecentGameLoaded(listener);
+    }
+
+    @Test
+    public void the_saved_standings_are_displayed() {
+        StandingsListener listener = mock(StandingsListener.class);
+        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+        when(dataRetriever.standings()).thenReturn(anyFourTeams());
+
+        WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
+        presenter.displaySavedStandings();
+
+        verify(dataRetriever).standings();
+        verify(listener, times(4)).addTeam(anyTeam());
+    }
+
+    @Test
+    public void when_there_is_no_saved_division_data_or_downloaded_data_then_a_message_is_displayed() throws Exception {
+        StandingsListener listener = mock(StandingsListener.class);
+        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+
+        WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
+        presenter.displaySavedStandings();
     }
 
     private Team[] anyFourTeams() {
@@ -118,5 +127,12 @@ public class WolvesStandingsPresenterTest {
         when(completedFixture.getAwayTeamScore()).thenReturn(7);
 
         return completedFixture;
+    }
+
+    private void verifyMostRecentGameLoaded(StandingsListener listener) {
+        verify(listener).setRecentGameHomeTeam("Team");
+        verify(listener).setRecentGameHomeScore("14");
+        verify(listener).setRecentGameAwayTeam("Team");
+        verify(listener).setRecentGameAwayScore("7");
     }
 }
