@@ -28,27 +28,17 @@ public class StandingsDataExtractor {
         this.document = document;
     }
 
-    public Team[] teams() {
+    public Team[] getTeams() {
         List<Team> teams = new ArrayList<>();
-        Element standingsTable = document.select("table[class=footable]").first();
-        Elements rows;
-        if (standingsTable != null) {
-            rows = standingsTable.select("tr");
-            for (Element row : rows.subList(1, rows.size())) {
-                String position = String.valueOf(rows.indexOf(row));
-                Elements tds = row.select("td");
+        final Elements rows = getStandingsRowsFrom(document);
 
-                Team team = new Team(tds.get(0).text(), new TeamStanding(
-                        position,
-                        tds.get(1).text(),
-                        tds.get(2).text(),
-                        tds.get(3).text(),
-                        tds.get(4).text(),
-                        tds.get(5).text(),
-                        tds.get(6).text()));
+        if (rows != null) {
+            for (Element row : rows.subList(1, rows.size())) {
+                final Team team = extractTeamFrom(rows, row);
                 teams.add(team);
             }
         }
+
         return (Team[]) teams.toArray();
     }
 
@@ -116,5 +106,28 @@ public class StandingsDataExtractor {
             result = scoreData.substring(5, (scoreData.length() - 1));
         }
         return result;
+    }
+
+    private Team extractTeamFrom(Elements rows, Element row) {
+        String position = String.valueOf(rows.indexOf(row));
+        Elements tds = row.select("td");
+
+        return new Team(tds.get(0).text(), new TeamStanding(
+                position,
+                tds.get(1).text(),
+                tds.get(2).text(),
+                tds.get(3).text(),
+                tds.get(4).text(),
+                tds.get(5).text(),
+                tds.get(6).text()));
+    }
+
+    private Elements getStandingsRowsFrom(Document document) {
+        Element standingsTable = document.select("table[class=footable]").first();
+        Elements rows = null;
+        if (standingsTable != null) {
+            rows = standingsTable.select("tr");
+        }
+        return rows;
     }
 }

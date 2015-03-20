@@ -28,10 +28,10 @@ public class WolvesStandingsPresenterTest {
     public void the_add_team_method_is_called_the_correct_number_of_times() {
         StandingsListener listener = mock(StandingsListener.class);
         StandingsDataExtractor extractor = mock(StandingsDataExtractor.class);
-        when(extractor.teams()).thenReturn(anyFourTeams());
+        when(extractor.getTeams()).thenReturn(anyFourTeams());
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, anyRetriever());
-        presenter.displayStandings(extractor.teams());
+        presenter.displayStandings(extractor.getTeams());
 
         verify(listener, times(4)).addTeam(anyTeam());
     }
