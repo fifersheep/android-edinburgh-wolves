@@ -21,10 +21,10 @@ import uk.lobsterdoodle.edinburghwolves.core.api.model.Fixture;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.TeamStanding;
 
-public class HtmlDocumentDataExtractor {
+public class StandingsDataExtractor {
     private final Document document;
 
-    public HtmlDocumentDataExtractor(Document document) {
+    public StandingsDataExtractor(Document document) {
         this.document = document;
     }
 

@@ -3,7 +3,7 @@ package uk.lobsterdoodle.edinburghwolves.core.api.presenter;
 import org.junit.Test;
 import org.mockito.InOrder;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.data.HtmlDocumentDataExtractor;
+import uk.lobsterdoodle.edinburghwolves.core.api.data.StandingsDataExtractor;
 import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
@@ -27,7 +27,7 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void the_add_team_method_is_called_the_correct_number_of_times() {
         StandingsListener listener = mock(StandingsListener.class);
-        HtmlDocumentDataExtractor extractor = mock(HtmlDocumentDataExtractor.class);
+        StandingsDataExtractor extractor = mock(StandingsDataExtractor.class);
         when(extractor.teams()).thenReturn(anyFourTeams());
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, anyRetriever());
