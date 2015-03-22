@@ -18,7 +18,7 @@ import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
-import uk.lobsterdoodle.edinburghwolves.core.api.presenter.WolvesStandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.api.presenter.WolvesStandingsPresenter;
 
 public class StandingsFragment extends Fragment implements StandingsListener {
 

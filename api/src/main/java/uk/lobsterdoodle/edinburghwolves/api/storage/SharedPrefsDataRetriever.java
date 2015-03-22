@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.core.api.data;
+package uk.lobsterdoodle.edinburghwolves.api.storage;
 
 import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
