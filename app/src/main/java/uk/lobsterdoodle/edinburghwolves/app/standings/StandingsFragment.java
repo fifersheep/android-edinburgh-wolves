@@ -15,9 +15,9 @@ import android.widget.Toast;
 import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
-import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
-import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.listener.StandingsListener;
+import uk.lobsterdoodle.edinburghwolves.api.presenter.StandingsPresenter;
 import uk.lobsterdoodle.edinburghwolves.api.presenter.WolvesStandingsPresenter;
 
 public class StandingsFragment extends Fragment implements StandingsListener {

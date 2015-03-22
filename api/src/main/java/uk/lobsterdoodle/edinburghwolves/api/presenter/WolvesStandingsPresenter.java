@@ -1,10 +1,9 @@
 package uk.lobsterdoodle.edinburghwolves.api.presenter;
 
 import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
-import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
-import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.core.listener.StandingsListener;
+import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 
 /**
  * Created by Scott Laing on 05-Jan-2015

@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.core.api.data;
+package uk.lobsterdoodle.edinburghwolves.core.data;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeComparator;
@@ -16,10 +16,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Fixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.TeamStanding;
+import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
+import uk.lobsterdoodle.edinburghwolves.core.model.Fixture;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.model.TeamStanding;
 
 public class StandingsDataExtractor {
     private final Document document;

@@ -1,7 +1,7 @@
-package uk.lobsterdoodle.edinburghwolves.core.api.presenter;
+package uk.lobsterdoodle.edinburghwolves.api.presenter;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 
 /**
  * Created by Scott Laing on 05-Jan-2015

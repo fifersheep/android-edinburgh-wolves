@@ -7,8 +7,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import uk.lobsterdoodle.edinburghwolves.app.R;
-import uk.lobsterdoodle.edinburghwolves.core.api.view.StandingsRowView;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.view.StandingsRowView;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 
 /**
  * Created by Scott Laing on 06-Jan-2015

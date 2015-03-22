@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.core.api.model;
+package uk.lobsterdoodle.edinburghwolves.core.model;
 
 import org.junit.Test;
 

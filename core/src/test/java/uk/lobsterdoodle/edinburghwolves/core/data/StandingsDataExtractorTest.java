@@ -1,19 +1,6 @@
-package uk.lobsterdoodle.edinburghwolves.core.api.data;
+package uk.lobsterdoodle.edinburghwolves.core.data;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class StandingsDataExtractorTest {
 

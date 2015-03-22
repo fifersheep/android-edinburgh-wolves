@@ -1,7 +1,7 @@
 package uk.lobsterdoodle.edinburghwolves.api.storage;
 
-import uk.lobsterdoodle.edinburghwolves.core.api.model.CompletedFixture;
-import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
+import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
+import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 
 public class SharedPrefsDataRetriever {
     public CompletedFixture mostRecentGame() {
