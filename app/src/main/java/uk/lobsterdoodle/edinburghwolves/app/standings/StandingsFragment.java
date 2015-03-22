@@ -12,9 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
-import uk.lobsterdoodle.edinburghwolves.core.api.data.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.api.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.api.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.api.presenter.StandingsPresenter;
