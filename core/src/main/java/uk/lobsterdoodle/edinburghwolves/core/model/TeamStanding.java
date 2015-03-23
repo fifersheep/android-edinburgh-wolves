@@ -58,4 +58,34 @@ public class TeamStanding {
     public String getGoalsAgainst() {
         return goalsAgainst;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TeamStanding)) return false;
+
+        TeamStanding that = (TeamStanding) o;
+
+        if (goalsAgainst != null ? !goalsAgainst.equals(that.goalsAgainst) : that.goalsAgainst != null) return false;
+        if (goalsFor != null ? !goalsFor.equals(that.goalsFor) : that.goalsFor != null) return false;
+        if (loses != null ? !loses.equals(that.loses) : that.loses != null) return false;
+        if (percentage != null ? !percentage.equals(that.percentage) : that.percentage != null) return false;
+        if (position != null ? !position.equals(that.position) : that.position != null) return false;
+        if (ties != null ? !ties.equals(that.ties) : that.ties != null) return false;
+        if (wins != null ? !wins.equals(that.wins) : that.wins != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = position != null ? position.hashCode() : 0;
+        result = 31 * result + (wins != null ? wins.hashCode() : 0);
+        result = 31 * result + (loses != null ? loses.hashCode() : 0);
+        result = 31 * result + (ties != null ? ties.hashCode() : 0);
+        result = 31 * result + (percentage != null ? percentage.hashCode() : 0);
+        result = 31 * result + (goalsFor != null ? goalsFor.hashCode() : 0);
+        result = 31 * result + (goalsAgainst != null ? goalsAgainst.hashCode() : 0);
+        return result;
+    }
 }

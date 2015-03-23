@@ -1,6 +1,7 @@
 package uk.lobsterdoodle.edinburghwolves.app.standings;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,7 @@ import uk.lobsterdoodle.edinburghwolves.api.presenter.WolvesStandingsPresenter;
 
 public class StandingsFragment extends Fragment implements StandingsListener {
 
+    private static final String SHARED_PREFS = "SHARED_PREFS";
     private static String TAG = StandingsFragment.class.getSimpleName();
     private StandingsPresenter presenter;
 
@@ -30,7 +32,9 @@ public class StandingsFragment extends Fragment implements StandingsListener {
         super.onCreate(savedInstanceState);
         Context context = getActivity();
 
-        presenter = new WolvesStandingsPresenter(this, new SharedPrefsDataRetriever());
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE);
+
+        presenter = new WolvesStandingsPresenter(this, new SharedPrefsDataRetriever(sharedPreferences));
         presenter.displaySavedStandings();
         presenter.displaySavedMostRecentGame();
 
