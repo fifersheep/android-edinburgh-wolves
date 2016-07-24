@@ -5,8 +5,6 @@
     <string name="title_section1">Standings</string>
     <string name="title_section2">Fixtures</string>
     <string name="title_section3">News</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example</string>
     <string name="menu_about">About</string>
 
@@ -26,5 +24,9 @@
     <string name="standings_default_wlt">10&#8211;0&#8211;1</string>
     <string name="standings_default_pct">.967</string>
     <string name="standings_default_foragg">143 / 112</string>
+    <string name="title_activity_wolves_home">WolvesHomeActivity</string>
+    <string name="scoreboard_home_name_default">Home</string>
+    <string name="scoreboard_away_name_default">Away</string>
+    <string name="scoreboard_score_default">0</string>
 
 </resources>
