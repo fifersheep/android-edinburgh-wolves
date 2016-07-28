@@ -8,9 +8,9 @@
     tools:context="uk.lobsterdoodle.edinburghwolves.app.WolvesHomeActivity"
     tools:showIn="@layout/activity_wolves_home">
 
-    <fragment android:id="@+id/navigation_drawer"
+    <uk.lobsterdoodle.edinburghwolves.app.navigation.HomeTabViewPager
+        android:id="@+id/home_fragment_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="uk.lobsterdoodle.edinburghwolves.app.WolvesHomeFragment" />
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    app:bbn_itemColorActive="@color/nav_tab_tint_active"
+    app:bbn_itemColorInactive="@color/nav_tab_tint_inactive">
+    <item
+        android:id="@+id/nav_tab_item_home"
+        android:color="@color/palette_red"
+        android:icon="@drawable/ic_tab_home"
+        android:title="@string/nav_tab_home" />
+    <item
+        android:id="@+id/nav_tab_item_fixtures"
+        android:color="@color/palette_red"
+        android:icon="@drawable/ic_tab_fixtures"
+        android:title="@string/nav_tab_fixtures" />
+    <item
+        android:id="@+id/nav_tab_item_news"
+        android:color="@color/palette_red"
+        android:icon="@drawable/ic_tab_news"
+        android:title="@string/nav_tab_news" />
+    <item
+        android:id="@+id/nav_tab_item_roster"
+        android:color="@color/palette_red"
+        android:icon="@drawable/ic_tab_roster"
+        android:title="@string/nav_tab_roster" />
+    <item
+        android:id="@+id/nav_tab_item_how_to"
+        android:color="@color/palette_red"
+        android:icon="@drawable/ic_tab_how_to"
+        android:title="@string/nav_tab_how_to" />
+</menu>

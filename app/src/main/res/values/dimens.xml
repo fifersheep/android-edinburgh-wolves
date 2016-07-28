@@ -23,4 +23,5 @@
     <dimen name="standings_table_position_text_size">16sp</dimen>
     <dimen name="standings_table_team_name_text_size">14sp</dimen>
     <dimen name="standings_table_stats_column_padding">6dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>

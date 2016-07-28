@@ -5,7 +5,7 @@
     android:id="@+id/standings_item_grid"
     android:layout_width="match_parent" android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/standings_table_row_spacing"
-    android:background="@color/white">
+    android:background="@color/palette_white">
 
     <TextView
         android:id="@+id/standings_table_position"
@@ -26,7 +26,7 @@
         android:layout_toLeftOf="@+id/standings_table_wins"
         android:layout_centerVertical="true"
         tools:text="Edinburgh Wolves"
-        android:textColor="@color/dark_grey"
+        android:textColor="@color/palette_grey_dark"
         android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/standings_table_stats_column_padding"
         tools:text="@string/standings_default_wlt"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/palette_grey_light"
         android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/standings_table_stats_column_padding"
         tools:text="@string/standings_default_pct"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/palette_grey_light"
         android:textSize="@dimen/standings_table_team_name_text_size" />
 
     <TextView
@@ -59,6 +59,6 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/standings_table_stats_column_padding"
         tools:text="@string/standings_default_foragg"
-        android:textColor="@color/light_grey"
+        android:textColor="@color/palette_grey_light"
         android:textSize="@dimen/standings_table_team_name_text_size" />
 </RelativeLayout>
