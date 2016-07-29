@@ -5,29 +5,23 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import uk.lobsterdoodle.edinburghwolves.app.di.DaggerWolvesComponent;
-import uk.lobsterdoodle.edinburghwolves.app.di.WolvesComponent;
-import uk.lobsterdoodle.edinburghwolves.app.di.WolvesModule;
+import javax.inject.Inject;
+
+import uk.lobsterdoodle.edinburghwolves.app.base.App;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent.DummyItem;
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter;
 import uk.lobsterdoodle.edinburghwolves.core.view.RosterListFragmentView;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
 public class RosterListFragment extends Fragment implements RosterListFragmentView {
     private OnListFragmentInteractionListener mListener;
-    private RosterListFragmentPresenter presenter;
+
+    @Inject RosterListFragmentPresenter presenter;
 
     public RosterListFragment() {
     }
@@ -40,8 +34,7 @@ public class RosterListFragment extends Fragment implements RosterListFragmentVi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        WolvesComponent component = DaggerWolvesComponent.builder().wolvesModule(new WolvesModule()).build();
-        presenter = component.provideRosterListFragmentPresenter();
+        App.get(getActivity()).component().inject(this);
     }
 
     @Override
