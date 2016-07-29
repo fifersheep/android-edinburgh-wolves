@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app;
+package uk.lobsterdoodle.edinburghwolves.app.roster;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
+import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.base.App;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent.DummyItem;

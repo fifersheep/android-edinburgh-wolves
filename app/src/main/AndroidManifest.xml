@@ -12,7 +12,7 @@
         android:logo="@drawable/team_logo"
         android:theme="@style/WolvesTheme">
         <activity
-            android:name=".WolvesHomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_wolves_home"
             android:theme="@style/WolvesTheme">
             <intent-filter>

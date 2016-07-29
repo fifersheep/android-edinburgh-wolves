@@ -3,12 +3,12 @@ package uk.lobsterdoodle.edinburghwolves.app.base;
 import android.app.Application;
 import android.content.Context;
 
-import uk.lobsterdoodle.edinburghwolves.app.di.DaggerWolvesComponent;
-import uk.lobsterdoodle.edinburghwolves.app.di.WolvesComponent;
-import uk.lobsterdoodle.edinburghwolves.app.di.WolvesModule;
+import uk.lobsterdoodle.edinburghwolves.app.di.DaggerUiComponent;
+import uk.lobsterdoodle.edinburghwolves.app.di.UiComponent;
+import uk.lobsterdoodle.edinburghwolves.app.di.UiModule;
 
 public class App extends Application {
-    private WolvesComponent appComponent;
+    private UiComponent uiComponent;
 
     public static App get(Context context) {
         return (App) context.getApplicationContext();
@@ -17,15 +17,15 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appComponent = DaggerWolvesComponent
+        uiComponent = DaggerUiComponent
                 .builder()
-                .wolvesModule(new WolvesModule())
+                .uiModule(new UiModule())
                 .build();
 
-        appComponent.inject(this);
+        uiComponent.inject(this);
     }
 
-    public WolvesComponent component() {
-        return appComponent;
+    public UiComponent component() {
+        return uiComponent;
     }
 }

@@ -11,11 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
-import uk.lobsterdoodle.edinburghwolves.app.RosterListFragment.OnListFragmentInteractionListener;
-import uk.lobsterdoodle.edinburghwolves.app.WolvesHomeFragment.OnFragmentInteractionListener;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent;
+import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment;
+import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment.OnListFragmentInteractionListener;
+import uk.lobsterdoodle.edinburghwolves.app.overview.OverviewFragment;
 
-public class WolvesHomeActivity extends AppCompatActivity implements OnFragmentInteractionListener, OnListFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements OverviewFragment.OnFragmentInteractionListener, OnListFragmentInteractionListener {
 
     private ViewPager viewPager;
 
@@ -66,7 +67,7 @@ public class WolvesHomeActivity extends AppCompatActivity implements OnFragmentI
         public Fragment getItem(int position) {
             return position == 3
                         ? RosterListFragment.newInstance()
-                        : WolvesHomeFragment.newInstance();
+                        : OverviewFragment.newInstance();
         }
         @Override
         public int getCount() {

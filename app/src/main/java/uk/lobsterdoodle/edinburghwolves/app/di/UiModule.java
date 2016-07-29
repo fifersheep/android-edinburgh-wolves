@@ -5,7 +5,7 @@ import dagger.Provides;
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter;
 
 @Module
-public class WolvesModule {
+public class UiModule {
 
     @Provides
     RosterListFragmentPresenter providesRosterListFragmentPresenter() {

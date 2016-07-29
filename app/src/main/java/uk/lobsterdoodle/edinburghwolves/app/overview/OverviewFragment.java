@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app;
+package uk.lobsterdoodle.edinburghwolves.app.overview;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,20 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.view.ScoreboardView;
 
-public class WolvesHomeFragment extends Fragment {
+public class OverviewFragment extends Fragment {
 
     ScoreboardView scoreboard;
 
     private OnFragmentInteractionListener mListener;
 
-    public WolvesHomeFragment() {
+    public OverviewFragment() {
         // Required empty public constructor
     }
 
-    public static WolvesHomeFragment newInstance() {
-        return new WolvesHomeFragment();
+    public static OverviewFragment newInstance() {
+        return new OverviewFragment();
     }
 
     @Override
