@@ -13,7 +13,11 @@ import android.support.v7.widget.Toolbar;
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 import uk.lobsterdoodle.edinburghwolves.app.RosterListFragment.OnListFragmentInteractionListener;
 import uk.lobsterdoodle.edinburghwolves.app.WolvesHomeFragment.OnFragmentInteractionListener;
+import uk.lobsterdoodle.edinburghwolves.app.di.DaggerWolvesComponent;
+import uk.lobsterdoodle.edinburghwolves.app.di.WolvesComponent;
+import uk.lobsterdoodle.edinburghwolves.app.di.WolvesModule;
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent;
+import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter;
 
 public class WolvesHomeActivity extends AppCompatActivity implements OnFragmentInteractionListener, OnListFragmentInteractionListener {
 
