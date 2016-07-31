@@ -24,7 +24,7 @@
     <string name="standings_default_wlt">10&#8211;0&#8211;1</string>
     <string name="standings_default_pct">.967</string>
     <string name="standings_default_foragg">143 / 112</string>
-    <string name="title_activity_wolves_home">WolvesHomeActivity</string>
+    <string name="title_activity_wolves_home">Wolves</string>
     <string name="scoreboard_home_name_default">Home</string>
     <string name="scoreboard_away_name_default">Away</string>
     <string name="scoreboard_score_default">0</string>
