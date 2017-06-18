@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.api.storage;
+package uk.lobsterdoodle.edinburghwolves.core.storage;
 
 import android.content.SharedPreferences;
 

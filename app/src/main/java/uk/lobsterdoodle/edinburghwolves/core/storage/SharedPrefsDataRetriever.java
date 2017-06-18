@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.api.storage;
+package uk.lobsterdoodle.edinburghwolves.core.storage;
 
 import android.content.SharedPreferences;
 
@@ -10,8 +10,9 @@ import java.util.Set;
 import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.model.TeamStanding;
+import uk.lobsterdoodle.edinburghwolves.storage.DataRetriever;
 
-public class SharedPrefsDataRetriever {
+public class SharedPrefsDataRetriever implements DataRetriever {
     public static final String KEY_TEAM_NAMES = "KEY_TEAM_NAMES";
 
     private final SharedPreferences sharedPreferences;
@@ -24,6 +25,7 @@ public class SharedPrefsDataRetriever {
         return null;
     }
 
+    @Override
     public Team[] standings() {
         final Set<String> teamKeys = sharedPreferences.getStringSet(KEY_TEAM_NAMES, Collections.<String>emptySet());
 

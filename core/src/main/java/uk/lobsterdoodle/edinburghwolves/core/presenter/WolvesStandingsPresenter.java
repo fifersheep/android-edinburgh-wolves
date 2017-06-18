@@ -1,9 +1,9 @@
-package uk.lobsterdoodle.edinburghwolves.api.presenter;
+package uk.lobsterdoodle.edinburghwolves.core.presenter;
 
-import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.model.Team;
+import uk.lobsterdoodle.edinburghwolves.storage.DataRetriever;
 
 /**
  * Created by Scott Laing on 05-Jan-2015
@@ -12,9 +12,9 @@ import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 public class WolvesStandingsPresenter implements StandingsPresenter {
 
     private final StandingsListener listener;
-    private final SharedPrefsDataRetriever dataRetriever;
+    private final DataRetriever dataRetriever;
 
-    public WolvesStandingsPresenter(StandingsListener listener, SharedPrefsDataRetriever dataRetriever) {
+    public WolvesStandingsPresenter(StandingsListener listener, DataRetriever dataRetriever) {
         this.listener = listener;
         this.dataRetriever = dataRetriever;
     }

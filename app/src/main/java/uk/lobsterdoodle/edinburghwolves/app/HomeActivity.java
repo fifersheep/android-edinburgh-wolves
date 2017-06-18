@@ -47,12 +47,12 @@ public class HomeActivity extends AppCompatActivity implements OverviewFragment.
     private class TabSelectedListener implements BottomNavigation.OnMenuItemSelectionListener {
 
         @Override
-        public void onMenuItemSelect(@IdRes int itemId, int position) {
+        public void onMenuItemSelect(@IdRes int itemId, int position, boolean flag) {
             viewPager.setCurrentItem(position);
         }
 
         @Override
-        public void onMenuItemReselect(@IdRes int itemId, int position) {
+        public void onMenuItemReselect(@IdRes int itemId, int position, boolean flag) {
             viewPager.setCurrentItem(position);
         }
     }

@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.api.presenter;
+package uk.lobsterdoodle.edinburghwolves.core.presenter;
 
 import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.model.Team;

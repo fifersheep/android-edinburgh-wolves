@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 import uk.lobsterdoodle.edinburghwolves.core.data.StandingsDataExtractor;
-import uk.lobsterdoodle.edinburghwolves.api.presenter.StandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.core.presenter.StandingsPresenter;
 
 /**
  * Created by Scott Laing on 09-Jan-2015

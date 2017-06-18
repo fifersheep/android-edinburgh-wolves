@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent" android:layout_height="match_parent"
 android:id="@+id/background_layout"
-android:background="@color/palette_grey"
+android:background="@color/palette_grey_light"
 android:layout_below="@+id/scoreboard_layout">
 
     <android.support.v7.widget.CardView

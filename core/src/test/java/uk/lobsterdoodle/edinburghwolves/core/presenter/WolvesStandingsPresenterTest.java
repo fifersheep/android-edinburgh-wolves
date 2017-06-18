@@ -1,13 +1,13 @@
-package uk.lobsterdoodle.edinburghwolves.api.presenter;
+package uk.lobsterdoodle.edinburghwolves.core.presenter;
 
 import org.junit.Test;
 import org.mockito.InOrder;
 
-import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.core.data.StandingsDataExtractor;
 import uk.lobsterdoodle.edinburghwolves.core.listener.StandingsListener;
 import uk.lobsterdoodle.edinburghwolves.core.model.CompletedFixture;
 import uk.lobsterdoodle.edinburghwolves.core.model.Team;
+import uk.lobsterdoodle.edinburghwolves.storage.DataRetriever;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doNothing;
@@ -53,7 +53,7 @@ public class WolvesStandingsPresenterTest {
     public void the_most_recent_game_is_displayed_correctly_when_one_exists() {
         StandingsListener listener = mock(StandingsListener.class);
 
-        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+        DataRetriever dataRetriever = mock(DataRetriever.class);
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
         presenter.displayMostRecentGame(anyCompletedFixture());
 
@@ -63,7 +63,7 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void the_saved_most_recent_game_is_displayed() {
         StandingsListener listener = mock(StandingsListener.class);
-        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+        DataRetriever dataRetriever = mock(DataRetriever.class);
         CompletedFixture game = anyCompletedFixture();
         when(dataRetriever.mostRecentGame()).thenReturn(game);
 
@@ -77,7 +77,7 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void the_saved_standings_are_displayed() {
         StandingsListener listener = mock(StandingsListener.class);
-        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+        DataRetriever dataRetriever = mock(DataRetriever.class);
         when(dataRetriever.standings()).thenReturn(anyFourTeams());
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
@@ -90,7 +90,7 @@ public class WolvesStandingsPresenterTest {
     @Test
     public void when_there_is_no_saved_division_data_or_downloaded_data_then_a_message_is_displayed() throws Exception {
         StandingsListener listener = mock(StandingsListener.class);
-        SharedPrefsDataRetriever dataRetriever = mock(SharedPrefsDataRetriever.class);
+        DataRetriever dataRetriever = mock(DataRetriever.class);
 
         WolvesStandingsPresenter presenter = new WolvesStandingsPresenter(listener, dataRetriever);
         presenter.displaySavedStandings();
@@ -109,8 +109,8 @@ public class WolvesStandingsPresenterTest {
         return any(Team.class);
     }
 
-    private SharedPrefsDataRetriever anyRetriever() {
-        return mock(SharedPrefsDataRetriever.class);
+    private DataRetriever anyRetriever() {
+        return mock(DataRetriever.class);
     }
 
     private CompletedFixture anyCompletedFixture() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/standings_item_grid"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/standings_table_row_spacing"
     android:background="@color/palette_white">
 
@@ -11,54 +11,61 @@
         android:id="@+id/standings_table_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:paddingRight="@dimen/standings_table_position_column_padding"
-        tools:text="1"
-        android:textColor="#AAA"
-        android:textSize="@dimen/standings_table_position_text_size" />
-
-    <TextView
-        android:id="@+id/standings_table_team"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/standings_table_position"
-        android:layout_toLeftOf="@+id/standings_table_wins"
-        android:layout_centerVertical="true"
-        tools:text="Edinburgh Wolves"
-        android:textColor="@color/palette_grey_dark"
-        android:textSize="@dimen/standings_table_team_name_text_size" />
-
-    <TextView
-        android:id="@+id/standings_table_wins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/standings_table_percentage"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/standings_table_stats_column_padding"
-        tools:text="@string/standings_default_wlt"
         android:textColor="@color/palette_grey_light"
-        android:textSize="@dimen/standings_table_team_name_text_size" />
+        android:textSize="@dimen/standings_table_position_text_size"
+        tools:text="1"/>
 
-    <TextView
-        android:id="@+id/standings_table_percentage"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/standings_item_grid"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/standings_table_points"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/standings_table_stats_column_padding"
-        tools:text="@string/standings_default_pct"
-        android:textColor="@color/palette_grey_light"
-        android:textSize="@dimen/standings_table_team_name_text_size" />
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp">
 
-    <TextView
-        android:id="@+id/standings_table_points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/standings_table_stats_column_padding"
-        tools:text="@string/standings_default_foragg"
-        android:textColor="@color/palette_grey_light"
-        android:textSize="@dimen/standings_table_team_name_text_size" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/standings_table_team"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/standings_table_wins"
+            android:textColor="@color/palette_grey"
+            android:textSize="@dimen/standings_table_team_name_text_size"
+            tools:text="Edinburgh Wolves"/>
+
+        <TextView
+            android:id="@+id/standings_table_wins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/standings_table_percentage"
+            android:paddingLeft="@dimen/standings_table_stats_column_padding"
+            android:textColor="@color/palette_grey"
+            android:textSize="@dimen/standings_table_team_name_text_size"
+            tools:text="@string/standings_default_wlt"/>
+
+        <TextView
+            android:id="@+id/standings_table_percentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/standings_table_points"
+            android:paddingLeft="@dimen/standings_table_stats_column_padding"
+            android:textColor="@color/palette_grey"
+            android:textSize="@dimen/standings_table_team_name_text_size"
+            tools:text="@string/standings_default_pct"/>
+
+        <TextView
+            android:id="@+id/standings_table_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/standings_table_stats_column_padding"
+            android:textColor="@color/palette_grey"
+            android:textSize="@dimen/standings_table_team_name_text_size"
+            tools:text="@string/standings_default_foragg"/>
+    </RelativeLayout>
+</FrameLayout>

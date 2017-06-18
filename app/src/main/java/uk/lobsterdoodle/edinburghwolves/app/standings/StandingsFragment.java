@@ -13,13 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import uk.lobsterdoodle.edinburghwolves.api.storage.SharedPrefsDataRetriever;
+import uk.lobsterdoodle.edinburghwolves.core.storage.SharedPrefsDataRetriever;
 import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.network.DivisionDataDownloadTask;
 import uk.lobsterdoodle.edinburghwolves.core.model.Team;
 import uk.lobsterdoodle.edinburghwolves.core.listener.StandingsListener;
-import uk.lobsterdoodle.edinburghwolves.api.presenter.StandingsPresenter;
-import uk.lobsterdoodle.edinburghwolves.api.presenter.WolvesStandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.core.presenter.StandingsPresenter;
+import uk.lobsterdoodle.edinburghwolves.core.presenter.WolvesStandingsPresenter;
 
 public class StandingsFragment extends Fragment implements StandingsListener {
 
