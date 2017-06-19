@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="content_background">@color/palette_grey_light</color>
-    <color name="standings_header">#5999</color>
 
     <color name="nav_tab_tint_active">@color/palette_grey</color>
     <color name="nav_tab_tint_inactive">@color/palette_red_dark</color>

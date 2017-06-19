@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.lobsterdoodle.edinburghwolves.app">
+<manifest package="uk.lobsterdoodle.edinburghwolves.app"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".base.App"
@@ -12,13 +12,12 @@
         android:logo="@drawable/team_logo"
         android:theme="@style/WolvesTheme">
         <activity
-            android:name=".HomeActivity"
-            android:label="@string/title_activity_wolves_home"
+            android:name="uk.lobsterdoodle.edinburghwolves.home.HomeActivity"
+            android:label="@string/wolves"
             android:theme="@style/WolvesTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

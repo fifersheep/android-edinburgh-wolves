@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".HomeActivity">
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:fitsSystemWindows="true"
+                                                 android:background="@color/content_background"
+                                                 tools:context="uk.lobsterdoodle.edinburghwolves.home.HomeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,20 +18,43 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/WolvesTheme.PopupOverlay" />
+            app:popupTheme="@style/WolvesTheme.PopupOverlay">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/app_logo"
+                android:contentDescription="@string/wolves"/>
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_wolves_home" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <it.sephiroth.android.library.bottomnavigation.BottomNavigation
-        android:id="@+id/nav_tabs"
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_fragment_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:bbn_entries="@menu/menu_navigation_tabs"
-        app:bbn_scrollEnabled="true"
-        app:bbn_badgeProvider="@string/bbn_badgeProvider"
-        app:layout_behavior="@string/bbn_phone_view_behavior" />
+        android:layout_marginEnd="0dp"
+        android:layout_marginStart="0dp"
+        android:background="?attr/colorPrimary"
+        app:itemIconTint="@drawable/nav_tab_tint"
+        app:itemTextColor="@drawable/nav_tab_tint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation"/>
 
 </android.support.design.widget.CoordinatorLayout>
