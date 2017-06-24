@@ -1,0 +1,3 @@
+package uk.lobsterdoodle.edinburghwolves.roster
+
+class RetrievePlayersEvent

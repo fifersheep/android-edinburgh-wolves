@@ -11,6 +11,6 @@ public class RosterListFragmentPresenter {
     }
 
     public void onResume() {
-        view.makeToast();
+
     }
 }

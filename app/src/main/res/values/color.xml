@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="content_background">@color/palette_grey_light</color>
+    <color name="content_background">@color/palette_white</color>
 
-    <color name="nav_tab_tint_active">@color/palette_grey</color>
+    <color name="nav_tab_tint_active">@color/palette_white</color>
     <color name="nav_tab_tint_inactive">@color/palette_red_dark</color>
 
     <!-- Colour Palette -->
@@ -12,4 +12,7 @@
     <color name="palette_red">#B02A30</color>
     <color name="palette_red_dark">#8D2226</color>
     <color name="palette_transparent">#00000000</color>
+
+    <!-- Palette with transparency -->
+    <color name="palette_grey_50">#88222222</color>
 </resources>

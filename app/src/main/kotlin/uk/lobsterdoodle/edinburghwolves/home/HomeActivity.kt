@@ -8,12 +8,21 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import com.eightbitlab.rxbus.Bus
+import com.eightbitlab.rxbus.registerInBus
+import retrofit2.Call
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import rx.schedulers.Schedulers
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.dummy.DummyContent
 import uk.lobsterdoodle.edinburghwolves.app.overview.OverviewFragment
 import uk.lobsterdoodle.edinburghwolves.app.overview.OverviewFragment.OnFragmentInteractionListener
 import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment
 import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment.OnListFragmentInteractionListener
+import uk.lobsterdoodle.edinburghwolves.model.Player
+
 
 class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListFragmentInteractionListener {
 
@@ -56,6 +65,10 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
         navigation.setOnNavigationItemSelectedListener(listener)
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
+
     private inner class HomeFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             when (position) {
@@ -67,7 +80,7 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
         override fun getCount(): Int = 5
     }
 
-    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {}
+    override fun onListFragmentInteraction(player: Player) {}
 
     override fun onFragmentInteraction(uri: Uri?) {}
 }
