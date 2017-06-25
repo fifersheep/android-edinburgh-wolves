@@ -9,16 +9,16 @@
         android:id="@+id/nav_tab_item_fixtures"
         android:icon="@drawable/ic_tab_fixtures"
         android:title="@string/nav_tab_fixtures" />
-    <item
-        android:id="@+id/nav_tab_item_news"
-        android:icon="@drawable/ic_tab_news"
-        android:title="@string/nav_tab_news" />
+    <!--<item-->
+        <!--android:id="@+id/nav_tab_item_news"-->
+        <!--android:icon="@drawable/ic_tab_news"-->
+        <!--android:title="@string/nav_tab_news" />-->
     <item
         android:id="@+id/nav_tab_item_roster"
         android:icon="@drawable/ic_tab_roster"
         android:title="@string/nav_tab_roster" />
-    <item
-        android:id="@+id/nav_tab_item_how_to"
-        android:icon="@drawable/ic_tab_how_to"
-        android:title="@string/nav_tab_how_to" />
+    <!--<item-->
+        <!--android:id="@+id/nav_tab_item_how_to"-->
+        <!--android:icon="@drawable/ic_tab_how_to"-->
+        <!--android:title="@string/nav_tab_how_to" />-->
 </menu>

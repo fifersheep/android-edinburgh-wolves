@@ -4,8 +4,8 @@
                                                  xmlns:tools="http://schemas.android.com/tools"
                                                  android:layout_width="match_parent"
                                                  android:layout_height="match_parent"
-                                                 android:fitsSystemWindows="true"
                                                  android:background="@color/content_background"
+                                                 android:fitsSystemWindows="true"
                                                  tools:context="uk.lobsterdoodle.edinburghwolves.home.HomeActivity">
 
     <android.support.constraint.ConstraintLayout
@@ -13,35 +13,35 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/toolbar_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/WolvesTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/WolvesTheme.PopupOverlay">
+            android:layout_height="wrap_content"
+            android:theme="@style/WolvesTheme.AppBarOverlay">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
-                android:scaleType="fitStart"
-                android:src="@drawable/app_logo"
-                android:contentDescription="@string/wolves"/>
-        </android.support.v7.widget.Toolbar>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/WolvesTheme.PopupOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/wolves"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/app_logo"/>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout"
-            app:layout_constraintBottom_toTopOf="@+id/navigation">
+            app:layout_constraintBottom_toTopOf="@+id/navigation"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_layout">
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/home_fragment_view_pager"
@@ -50,18 +50,18 @@
 
         </FrameLayout>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginEnd="0dp"
-        android:layout_marginStart="0dp"
-        android:background="?attr/colorPrimary"
-        app:itemIconTint="@drawable/nav_tab_tint"
-        app:itemTextColor="@drawable/nav_tab_tint"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation"/>
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginEnd="0dp"
+            android:layout_marginStart="0dp"
+            android:background="?attr/colorPrimary"
+            app:itemIconTint="@drawable/nav_tab_tint"
+            app:itemTextColor="@drawable/nav_tab_tint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:menu="@menu/navigation"/>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.design.widget.CoordinatorLayout>

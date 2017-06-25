@@ -10,7 +10,7 @@
     <string name="scoreboard_home_name_default">Home</string>
     <string name="scoreboard_away_name_default">Away</string>
     <string name="scoreboard_score_default">0</string>
-    <string name="nav_tab_home">Wolves</string>
+    <string name="nav_tab_home">Home</string>
     <string name="nav_tab_fixtures">Fixtures</string>
     <string name="nav_tab_news">News</string>
     <string name="nav_tab_roster">Roster</string>
