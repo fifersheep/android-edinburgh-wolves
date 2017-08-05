@@ -3,8 +3,8 @@ package uk.lobsterdoodle.edinburghwolves.app.base;
 import android.app.Application;
 import android.content.Context;
 
-import uk.lobsterdoodle.edinburghwolves.app.di.DaggerUiComponent;
-import uk.lobsterdoodle.edinburghwolves.app.di.UiComponent;
+import uk.lobsterdoodle.edinburghwolves.di.DaggerUiComponent;
+import uk.lobsterdoodle.edinburghwolves.di.UiComponent;
 import uk.lobsterdoodle.edinburghwolves.app.di.UiModule;
 
 public class App extends Application {

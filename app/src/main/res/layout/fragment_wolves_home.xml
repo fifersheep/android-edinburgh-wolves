@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".overview.OverviewFragment">
+    tools:context=".overview.DummyFragment">
 
     <uk.lobsterdoodle.edinburghwolves.app.view.ScoreboardView
         android:id="@+id/scoreboard"

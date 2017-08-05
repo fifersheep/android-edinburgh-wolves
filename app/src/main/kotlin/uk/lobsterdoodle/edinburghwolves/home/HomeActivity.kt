@@ -8,11 +8,12 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import uk.lobsterdoodle.edinburghwolves.OverviewFragment
 import uk.lobsterdoodle.edinburghwolves.app.R
-import uk.lobsterdoodle.edinburghwolves.app.overview.OverviewFragment
-import uk.lobsterdoodle.edinburghwolves.app.overview.OverviewFragment.OnFragmentInteractionListener
-import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment
-import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment.OnListFragmentInteractionListener
+import uk.lobsterdoodle.edinburghwolves.app.overview.DummyFragment
+import uk.lobsterdoodle.edinburghwolves.app.overview.DummyFragment.OnFragmentInteractionListener
+import uk.lobsterdoodle.edinburghwolves.roster.RosterListFragment
+import uk.lobsterdoodle.edinburghwolves.roster.RosterListFragment.OnListFragmentInteractionListener
 import uk.lobsterdoodle.edinburghwolves.model.Player
 
 
@@ -52,8 +53,9 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
     private inner class HomeFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             when (position) {
+                0 -> return OverviewFragment
                 2 -> return RosterListFragment.newInstance()
-                else -> { return OverviewFragment.newInstance() }
+                else -> { return DummyFragment.newInstance() }
             }
         }
 

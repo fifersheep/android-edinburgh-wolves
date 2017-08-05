@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app.roster
+package uk.lobsterdoodle.edinburghwolves.roster
 
 import android.content.Context
 import android.os.Bundle
@@ -22,7 +22,6 @@ import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter
 import uk.lobsterdoodle.edinburghwolves.core.view.RosterListFragmentView
 import uk.lobsterdoodle.edinburghwolves.model.Player
-import uk.lobsterdoodle.edinburghwolves.roster.RetrievePlayersEvent
 import javax.inject.Inject
 
 class RosterListFragment : Fragment(), RosterListFragmentView {

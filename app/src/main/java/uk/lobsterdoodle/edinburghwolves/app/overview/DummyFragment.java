@@ -11,18 +11,18 @@ import android.view.ViewGroup;
 import uk.lobsterdoodle.edinburghwolves.app.R;
 import uk.lobsterdoodle.edinburghwolves.app.view.ScoreboardView;
 
-public class OverviewFragment extends Fragment {
+public class DummyFragment extends Fragment {
 
     ScoreboardView scoreboard;
 
     private OnFragmentInteractionListener mListener;
 
-    public OverviewFragment() {
+    public DummyFragment() {
         // Required empty public constructor
     }
 
-    public static OverviewFragment newInstance() {
-        return new OverviewFragment();
+    public static DummyFragment newInstance() {
+        return new DummyFragment();
     }
 
     @Override

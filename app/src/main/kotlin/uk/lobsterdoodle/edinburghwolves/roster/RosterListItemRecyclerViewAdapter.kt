@@ -1,4 +1,4 @@
-package uk.lobsterdoodle.edinburghwolves.app.roster
+package uk.lobsterdoodle.edinburghwolves.roster
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import uk.lobsterdoodle.edinburghwolves.app.R
-import uk.lobsterdoodle.edinburghwolves.app.roster.RosterListFragment.OnListFragmentInteractionListener
 import uk.lobsterdoodle.edinburghwolves.model.Player
 
-class RosterListItemRecyclerViewAdapter(private val mListener: OnListFragmentInteractionListener?) : RecyclerView.Adapter<RosterListItemRecyclerViewAdapter.ViewHolder>() {
+class RosterListItemRecyclerViewAdapter(private val mListener: RosterListFragment.OnListFragmentInteractionListener?) : RecyclerView.Adapter<RosterListItemRecyclerViewAdapter.ViewHolder>() {
 
     val players = mutableListOf<Player>()
 
