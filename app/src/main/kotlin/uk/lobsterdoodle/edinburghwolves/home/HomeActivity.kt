@@ -12,12 +12,13 @@ import uk.lobsterdoodle.edinburghwolves.OverviewFragment
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.overview.DummyFragment
 import uk.lobsterdoodle.edinburghwolves.app.overview.DummyFragment.OnFragmentInteractionListener
+import uk.lobsterdoodle.edinburghwolves.model.Fixture
 import uk.lobsterdoodle.edinburghwolves.roster.RosterListFragment
 import uk.lobsterdoodle.edinburghwolves.roster.RosterListFragment.OnListFragmentInteractionListener
 import uk.lobsterdoodle.edinburghwolves.model.Player
 
 
-class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListFragmentInteractionListener {
+class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListFragmentInteractionListener, FixturesFragment.OnListFragmentInteractionListener {
 
     lateinit var viewPager: ViewPager
 
@@ -54,6 +55,7 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
         override fun getItem(position: Int): Fragment {
             when (position) {
                 0 -> return OverviewFragment
+                1 -> return FixturesFragment
                 2 -> return RosterListFragment.newInstance()
                 else -> { return DummyFragment.newInstance() }
             }
@@ -63,6 +65,8 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
     }
 
     override fun onListFragmentInteraction(player: Player) {}
+
+    override fun onListFragmentInteraction(fixture: Fixture) {}
 
     override fun onFragmentInteraction(uri: Uri?) {}
 }

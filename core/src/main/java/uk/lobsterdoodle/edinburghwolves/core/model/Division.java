@@ -20,11 +20,11 @@ public class Division {
         games.add(game);
     }
 
-    public List<Fixture> getFixtures() {
-        List<Fixture> results = new ArrayList<>();
+    public List<OldFixture> getFixtures() {
+        List<OldFixture> results = new ArrayList<>();
         for (Game game : games) {
-            if (game.getClass() == Fixture.class) {
-                results.add((Fixture) game);
+            if (game.getClass() == OldFixture.class) {
+                results.add((OldFixture) game);
             }
         }
         return results;

@@ -4,11 +4,11 @@ package uk.lobsterdoodle.edinburghwolves.core.model;
  *  on 29/09/2014 @ 00:55 */
 
 public class CompletedFixture implements Game {
-    private Fixture mFixture;
+    private OldFixture mFixture;
     private int mHomeTeamScore;
     private int mAwayTeamScore;
 
-    public CompletedFixture(Fixture fixture, int homeTeamScore, int awayTeamScore) {
+    public CompletedFixture(OldFixture fixture, int homeTeamScore, int awayTeamScore) {
         this.mFixture = fixture;
         this.mHomeTeamScore = homeTeamScore;
         this.mAwayTeamScore = awayTeamScore;
