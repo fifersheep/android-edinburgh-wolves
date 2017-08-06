@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="wrap_content">
 
@@ -29,7 +30,7 @@
     <TextView
         android:id="@+id/fixture_away_team_score"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -45,7 +46,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:text="WOLVES"
         android:textColor="@color/palette_white"
         android:textSize="16sp"
@@ -53,12 +55,12 @@
         app:layout_constraintEnd_toStartOf="@+id/fixture_home_color"
         app:layout_constraintTop_toBottomOf="@+id/fixture_away_team_score"
         app:layout_constraintVertical_bias="0.0"
-        android:layout_marginTop="0dp"/>
+        app:layout_constraintStart_toStartOf="@+id/fixture_away_color"/>
 
     <TextView
         android:id="@+id/fixture_home_team_score"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -74,13 +76,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:text="PIRATES"
         android:textColor="@color/palette_white"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/fixture_home_color"
-        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/fixture_home_color"
         app:layout_constraintTop_toBottomOf="@+id/fixture_home_team_score"/>
 
     <TextView
