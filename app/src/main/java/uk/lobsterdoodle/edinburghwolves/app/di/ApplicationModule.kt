@@ -3,6 +3,7 @@ package uk.lobsterdoodle.edinburghwolves.app.di
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter
 
@@ -19,6 +20,7 @@ class ApplicationModule {
         return Retrofit.Builder()
                 .baseUrl("https://bafanl-d5f55.firebaseio.com/")
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()
     }
 }

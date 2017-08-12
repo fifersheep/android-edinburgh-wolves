@@ -16,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import rx.Observable
 import rx.schedulers.Schedulers
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
@@ -65,12 +66,10 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     }
 
     fun onRetrievedPlayers() {
-        val service = retrofit.create(PlayersService::class.java)
-        val call = service.getPlayers()
-        val players = call.execute().body().orEmpty().values
-
-        activity.runOnUiThread {
-            adapter.newData(players.sortedWith(compareBy { it.number }).toMutableList())
+        retrofit.create(PlayersService::class.java).getPlayers().subscribe { players ->
+            activity.runOnUiThread {
+                adapter.newData(players.values.sortedWith(compareBy { it.number }).toMutableList())
+            }
         }
     }
 
@@ -94,7 +93,7 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
 
     interface PlayersService {
         @GET("players.json")
-        fun getPlayers(): Call<HashMap<String, Player>>
+        fun getPlayers(): Observable<HashMap<String, Player>>
     }
 
     companion object {

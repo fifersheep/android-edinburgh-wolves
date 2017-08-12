@@ -16,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import rx.Observable
 import rx.schedulers.Schedulers
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
@@ -56,12 +57,10 @@ class FixturesFragment : Fragment() {
     }
 
     fun onRetrievedFixtures() {
-        val service = retrofit.create(FixturesService::class.java)
-        val call = service.getFixtures()
-        val fixtures = call.execute().body().orEmpty().values
-
-        activity.runOnUiThread {
-            adapter.newData(fixtures.sortedWith(compareBy { it.date }).toMutableList())
+        retrofit.create(FixturesService::class.java).getFixtures().subscribe { fixtures ->
+            activity.runOnUiThread {
+                adapter.newData(fixtures.values.sortedWith(compareBy { it.date }).toMutableList())
+            }
         }
     }
 
@@ -85,6 +84,6 @@ class FixturesFragment : Fragment() {
 
     interface FixturesService {
         @GET("fixtures.json")
-        fun getFixtures(): Call<HashMap<String, Fixture>>
+        fun getFixtures(): Observable<HashMap<String, Fixture>>
     }
 }
