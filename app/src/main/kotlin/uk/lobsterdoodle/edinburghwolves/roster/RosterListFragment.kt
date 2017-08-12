@@ -31,6 +31,8 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
 
     @Inject lateinit var presenter: RosterListFragmentPresenter
 
+    @Inject lateinit var retrofit: Retrofit
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.get(activity).component().inject(this)
@@ -63,10 +65,6 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     }
 
     fun onRetrievedPlayers() {
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://bafanl-d5f55.firebaseio.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
         val service = retrofit.create(PlayersService::class.java)
         val call = service.getPlayers()
         val players = call.execute().body().orEmpty().values

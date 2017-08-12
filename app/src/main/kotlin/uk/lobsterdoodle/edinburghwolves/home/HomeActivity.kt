@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
         override fun getItem(position: Int): Fragment {
             when (position) {
                 0 -> return OverviewFragment
-                1 -> return FixturesFragment
+                1 -> return FixturesFragment()
                 2 -> return RosterListFragment.newInstance()
                 else -> { return DummyFragment.newInstance() }
             }

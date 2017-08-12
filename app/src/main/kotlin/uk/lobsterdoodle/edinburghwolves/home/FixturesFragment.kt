@@ -22,11 +22,14 @@ import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.fixture.FixtureListItemRecyclerViewAdapter
 import uk.lobsterdoodle.edinburghwolves.fixtures.RetrieveFixturesEvent
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
+import javax.inject.Inject
 
-object FixturesFragment : Fragment() {
+class FixturesFragment : Fragment() {
     private var mListener: FixturesFragment.OnListFragmentInteractionListener? = null
 
     private val adapter = FixtureListItemRecyclerViewAdapter(mListener)
+
+    @Inject lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,10 +56,6 @@ object FixturesFragment : Fragment() {
     }
 
     fun onRetrievedFixtures() {
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://bafanl-d5f55.firebaseio.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
         val service = retrofit.create(FixturesService::class.java)
         val call = service.getFixtures()
         val fixtures = call.execute().body().orEmpty().values
