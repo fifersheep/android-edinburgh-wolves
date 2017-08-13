@@ -12,17 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.eightbitlab.rxbus.Bus
 import com.eightbitlab.rxbus.registerInBus
-import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import rx.Observable
 import rx.schedulers.Schedulers
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter
 import uk.lobsterdoodle.edinburghwolves.core.view.RosterListFragmentView
 import uk.lobsterdoodle.edinburghwolves.model.Player
+import uk.lobsterdoodle.edinburghwolves.network.player.FetchPlayersDocument
+import uk.lobsterdoodle.edinburghwolves.network.player.PlayersDocument
 import javax.inject.Inject
 
 class RosterListFragment : Fragment(), RosterListFragmentView {
@@ -31,8 +28,6 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     private val adapter = RosterListItemRecyclerViewAdapter(mListener)
 
     @Inject lateinit var presenter: RosterListFragmentPresenter
-
-    @Inject lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,8 +50,8 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
         }
 
         presenter.onCreateView(this)
-        Bus.observe<RetrievePlayersEvent>().observeOn(Schedulers.newThread()).subscribe { onRetrievedPlayers() }.registerInBus(this)
-        Bus.send(RetrievePlayersEvent())
+        Bus.observe<PlayersDocument>().observeOn(Schedulers.newThread()).subscribe { playersDoc(it) }.registerInBus(this)
+        Bus.send(FetchPlayersDocument("players"))
         return view
     }
 
@@ -65,11 +60,9 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
         presenter.onResume()
     }
 
-    fun onRetrievedPlayers() {
-        retrofit.create(PlayersService::class.java).getPlayers().subscribe { players ->
-            activity.runOnUiThread {
-                adapter.newData(players.values.sortedWith(compareBy { it.number }).toMutableList())
-            }
+    private fun playersDoc(doc: PlayersDocument) {
+        activity.runOnUiThread {
+            adapter.newData(doc.payload.values.sortedWith(compareBy { it.number }).toMutableList())
         }
     }
 
@@ -89,11 +82,6 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
 
     interface OnListFragmentInteractionListener {
         fun onListFragmentInteraction(player: Player)
-    }
-
-    interface PlayersService {
-        @GET("players.json")
-        fun getPlayers(): Observable<HashMap<String, Player>>
     }
 
     companion object {

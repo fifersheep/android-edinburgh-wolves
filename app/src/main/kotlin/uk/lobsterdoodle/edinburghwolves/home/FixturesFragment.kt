@@ -11,26 +11,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.eightbitlab.rxbus.Bus
-import com.eightbitlab.rxbus.registerInBus
-import retrofit2.Call
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import rx.Observable
 import rx.schedulers.Schedulers
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.fixture.FixtureListItemRecyclerViewAdapter
-import uk.lobsterdoodle.edinburghwolves.fixtures.RetrieveFixturesEvent
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
-import javax.inject.Inject
+import uk.lobsterdoodle.edinburghwolves.network.fixture.FetchFixturesDocument
+import uk.lobsterdoodle.edinburghwolves.network.fixture.FixturesDocument
+
 
 class FixturesFragment : Fragment() {
     private var mListener: FixturesFragment.OnListFragmentInteractionListener? = null
 
     private val adapter = FixtureListItemRecyclerViewAdapter(mListener)
-
-    @Inject lateinit var retrofit: Retrofit
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,17 +43,15 @@ class FixturesFragment : Fragment() {
             recyclerView.adapter = adapter
         }
 
-        Bus.observe<RetrieveFixturesEvent>().observeOn(Schedulers.newThread()).subscribe { onRetrievedFixtures() }.registerInBus(this)
-        Bus.send(RetrieveFixturesEvent())
+        Bus.observe<FixturesDocument>().observeOn(Schedulers.newThread()).subscribe { fixturesDoc(it) }
+        Bus.send(FetchFixturesDocument("fixtures"))
 
         return view
     }
 
-    fun onRetrievedFixtures() {
-        retrofit.create(FixturesService::class.java).getFixtures().subscribe { fixtures ->
-            activity.runOnUiThread {
-                adapter.newData(fixtures.values.sortedWith(compareBy { it.date }).toMutableList())
-            }
+    private fun fixturesDoc(doc: FixturesDocument) {
+        activity.runOnUiThread {
+            adapter.newData(doc.payload.values.sortedWith(compareBy { it.date }).toMutableList())
         }
     }
 
@@ -80,10 +71,5 @@ class FixturesFragment : Fragment() {
 
     interface OnListFragmentInteractionListener {
         fun onListFragmentInteraction(fixture: Fixture)
-    }
-
-    interface FixturesService {
-        @GET("fixtures.json")
-        fun getFixtures(): Observable<HashMap<String, Fixture>>
     }
 }

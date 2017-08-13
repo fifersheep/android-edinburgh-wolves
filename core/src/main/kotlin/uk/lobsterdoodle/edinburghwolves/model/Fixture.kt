@@ -1,17 +1,17 @@
 package uk.lobsterdoodle.edinburghwolves.model
 
 data class Fixture(
-        val conference: String,
-        val week: String,
-        val date: String,
-        val status: FixtureStatus,
-        val home: FixtureTeam,
-        val away: FixtureTeam
+        val conference: String = "",
+        val week: String = "",
+        val date: String = "",
+        val status: FixtureStatus = FixtureStatus.unknown,
+        val home: FixtureTeam = FixtureTeam(),
+        val away: FixtureTeam = FixtureTeam()
 )
 
 data class FixtureTeam(
-        val score: String,
-        val team: String
+        val score: String = "",
+        val team: String = ""
 )
 
-enum class FixtureStatus { scheduled, started, finished }
+enum class FixtureStatus { unknown, scheduled, started, finished }

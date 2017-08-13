@@ -1,3 +1,3 @@
 package uk.lobsterdoodle.edinburghwolves.fixtures
 
-class RetrieveFixturesEvent
+data class Document<out T>(val doc: T)

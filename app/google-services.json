@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "466010519899",
+    "firebase_url": "https://bafanl-d5f55.firebaseio.com",
+    "project_id": "bafanl-d5f55",
+    "storage_bucket": "bafanl-d5f55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466010519899:android:ecdde2c3b3ba68da",
+        "android_client_info": {
+          "package_name": "uk.lobsterdoodle.edinburghwolves"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466010519899-vjnbovihgq81attk9c8s41empav58621.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1B9zUhGy6k15i1wtfRroyFlgPpAAjH4Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466010519899:android:11c0b1ecc74299c2",
+        "android_client_info": {
+          "package_name": "uk.lobsterdoodle.edinburghwolves.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466010519899-b59u4lfjqd3d5kp04hap97e99dkbk0qt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uk.lobsterdoodle.edinburghwolves.app",
+            "certificate_hash": "d8663f120437111438edb24018713a9a993a7276"
+          }
+        },
+        {
+          "client_id": "466010519899-vjnbovihgq81attk9c8s41empav58621.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1B9zUhGy6k15i1wtfRroyFlgPpAAjH4Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466010519899-vjnbovihgq81attk9c8s41empav58621.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
