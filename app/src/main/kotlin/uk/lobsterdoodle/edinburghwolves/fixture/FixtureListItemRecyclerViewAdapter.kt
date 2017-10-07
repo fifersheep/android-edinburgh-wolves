@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import butterknife.BindView
+import butterknife.ButterKnife
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.home.FixturesFragment
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
@@ -49,13 +51,16 @@ class FixtureListItemRecyclerViewAdapter (private val mListener: FixturesFragmen
     override fun getItemCount(): Int = fixtures.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val homeName = view.findViewById(R.id.fixture_home_team_name) as TextView
-        val homeScore = view.findViewById(R.id.fixture_home_team_score) as TextView
-        val homeColor = view.findViewById(R.id.fixture_home_color)
-        val awayName = view.findViewById(R.id.fixture_away_team_name) as TextView
-        val awayScore = view.findViewById(R.id.fixture_away_team_score) as TextView
-        val awayColor = view.findViewById(R.id.fixture_away_color)
-        val state = view.findViewById(R.id.fixture_state) as TextView
+        init { ButterKnife.bind(this, view) }
+
+        @BindView(R.id.fixture_home_team_name) lateinit var homeName: TextView
+        @BindView(R.id.fixture_home_team_score) lateinit var homeScore: TextView
+        @BindView(R.id.fixture_home_color) lateinit var homeColor: View
+        @BindView(R.id.fixture_away_team_name) lateinit var awayName: TextView
+        @BindView(R.id.fixture_away_team_score) lateinit var awayScore: TextView
+        @BindView(R.id.fixture_away_color) lateinit var awayColor: View
+        @BindView(R.id.fixture_state) lateinit var state: TextView
+
         var fixture: Fixture? = null
     }
 }

@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import butterknife.BindView
+import butterknife.ButterKnife
 import uk.lobsterdoodle.edinburghwolves.OverviewFragment
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.overview.DummyFragment
@@ -20,7 +22,8 @@ import uk.lobsterdoodle.edinburghwolves.model.Player
 
 class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListFragmentInteractionListener, FixturesFragment.OnListFragmentInteractionListener {
 
-    lateinit var viewPager: ViewPager
+    @BindView(R.id.home_fragment_view_pager) lateinit var viewPager: ViewPager
+    @BindView(R.id.navigation) lateinit var navigation: BottomNavigationView
 
     private val listener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -43,11 +46,9 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wolves_home)
+        ButterKnife.bind(this)
 
-        viewPager = findViewById(R.id.home_fragment_view_pager) as ViewPager
         viewPager.adapter = HomeFragmentPagerAdapter(supportFragmentManager)
-
-        val navigation = findViewById(R.id.navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener(listener)
     }
 

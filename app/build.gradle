@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
     buildToolsVersion "25.0.3"
 
     compileOptions {
@@ -15,7 +15,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -46,8 +46,10 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
 
     compile "com.google.dagger:dagger:$dagger_version"
+    compile "com.jakewharton:butterknife:$butterknife_version"
 
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
 
     provided 'org.glassfish:javax.annotation:10.0-b28'
 

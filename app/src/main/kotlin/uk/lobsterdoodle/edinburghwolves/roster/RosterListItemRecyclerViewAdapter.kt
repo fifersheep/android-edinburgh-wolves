@@ -1,10 +1,13 @@
 package uk.lobsterdoodle.edinburghwolves.roster
 
+import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import butterknife.BindView
+import butterknife.ButterKnife
 
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.model.Player
@@ -24,6 +27,7 @@ class RosterListItemRecyclerViewAdapter(private val mListener: RosterListFragmen
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val player = players[position]
         holder.player = player
@@ -40,10 +44,13 @@ class RosterListItemRecyclerViewAdapter(private val mListener: RosterListFragmen
     override fun getItemCount(): Int = players.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val fullname: TextView = view.findViewById(R.id.fullname) as TextView
-        val position: TextView = view.findViewById(R.id.position) as TextView
-        val number: TextView = view.findViewById(R.id.number) as TextView
-        val location: TextView = view.findViewById(R.id.location) as TextView
+        init { ButterKnife.bind(this, view) }
+
+        @BindView(R.id.fullname) lateinit var fullname: TextView
+        @BindView(R.id.position) lateinit var position: TextView
+        @BindView(R.id.number) lateinit var number: TextView
+        @BindView(R.id.location) lateinit var location: TextView
+
         var player: Player? = null
     }
 }
