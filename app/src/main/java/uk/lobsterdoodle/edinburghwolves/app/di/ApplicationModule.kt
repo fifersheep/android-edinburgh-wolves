@@ -1,6 +1,5 @@
 package uk.lobsterdoodle.edinburghwolves.app.di
 
-import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter
@@ -13,11 +12,6 @@ class ApplicationModule {
     @Provides
     internal fun providesRosterListFragmentPresenter(): RosterListFragmentPresenter {
         return RosterListFragmentPresenter()
-    }
-
-    @Provides
-    internal fun providesRemoteDatabase(): FirebaseDatabase {
-        return FirebaseDatabase.getInstance()
     }
 
     @Provides

@@ -19,7 +19,7 @@ import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresent
 import uk.lobsterdoodle.edinburghwolves.core.view.RosterListFragmentView
 import uk.lobsterdoodle.edinburghwolves.model.Player
 import uk.lobsterdoodle.edinburghwolves.network.player.FetchPlayersDocument
-import uk.lobsterdoodle.edinburghwolves.network.player.PlayersDocument
+import uk.lobsterdoodle.edinburghwolves.network.player.PlayersCollection
 import javax.inject.Inject
 
 class RosterListFragment : Fragment(), RosterListFragmentView {
@@ -50,7 +50,7 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
         }
 
         presenter.onCreateView(this)
-        Bus.observe<PlayersDocument>().observeOn(Schedulers.newThread()).subscribe { playersDoc(it) }.registerInBus(this)
+        Bus.observe<PlayersCollection>().observeOn(Schedulers.newThread()).subscribe { playersDoc(it) }.registerInBus(this)
         Bus.send(FetchPlayersDocument("players"))
         return view
     }
@@ -60,9 +60,9 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
         presenter.onResume()
     }
 
-    private fun playersDoc(doc: PlayersDocument) {
+    private fun playersDoc(doc: PlayersCollection) {
         activity.runOnUiThread {
-            adapter.newData(doc.payload.values.sortedWith(compareBy { it.number }).toMutableList())
+            adapter.newData(doc.players.sortedWith(compareBy { it.number }).toMutableList())
         }
     }
 

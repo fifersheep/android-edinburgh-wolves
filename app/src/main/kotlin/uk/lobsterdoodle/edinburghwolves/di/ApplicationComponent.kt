@@ -1,6 +1,5 @@
 package uk.lobsterdoodle.edinburghwolves.di
 
-import com.google.firebase.database.FirebaseDatabase
 import javax.inject.Singleton
 
 import dagger.Component
@@ -26,8 +25,6 @@ interface ApplicationComponent {
     fun inject(fixturesFragment: FixturesFragment)
 
     fun provideRosterListFragmentPresenter(): RosterListFragmentPresenter
-
-    fun providesRemoteDatabase(): FirebaseDatabase
 
     fun providesNetworkHandler(): FixturesNetworkHandler
 

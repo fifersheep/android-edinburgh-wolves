@@ -17,7 +17,7 @@ import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.fixture.FixtureListItemRecyclerViewAdapter
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
 import uk.lobsterdoodle.edinburghwolves.network.fixture.FetchFixturesDocument
-import uk.lobsterdoodle.edinburghwolves.network.fixture.FixturesDocument
+import uk.lobsterdoodle.edinburghwolves.network.fixture.FixturesCollection
 
 
 class FixturesFragment : Fragment() {
@@ -43,15 +43,15 @@ class FixturesFragment : Fragment() {
             recyclerView.adapter = adapter
         }
 
-        Bus.observe<FixturesDocument>().observeOn(Schedulers.newThread()).subscribe { fixturesDoc(it) }
+        Bus.observe<FixturesCollection>().observeOn(Schedulers.newThread()).subscribe { fixturesDoc(it) }
         Bus.send(FetchFixturesDocument("fixtures"))
 
         return view
     }
 
-    private fun fixturesDoc(doc: FixturesDocument) {
+    private fun fixturesDoc(doc: FixturesCollection) {
         activity.runOnUiThread {
-            adapter.newData(doc.payload.values.sortedWith(compareBy { it.date }).toMutableList())
+            adapter.newData(doc.fixtures.sortedWith(compareBy { it.date }).toMutableList())
         }
     }
 
