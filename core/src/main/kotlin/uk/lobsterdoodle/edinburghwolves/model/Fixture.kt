@@ -11,7 +11,7 @@ data class Fixture(
 
 data class FixtureTeam(
         val score: String = "",
-        val team: String = ""
+        val team: Team = Team()
 )
 
 enum class FixtureStatus { unknown, scheduled, started, finished }

@@ -1,5 +1,7 @@
 package uk.lobsterdoodle.edinburghwolves.fixture
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -27,15 +29,19 @@ class FixtureListItemRecyclerViewAdapter (private val mListener: FixturesFragmen
         return ViewHolder(view)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val fixture = fixtures[position]
         holder.fixture = fixture
-        holder.homeName.text = fixture.home.team
+
+        holder.homeName.text = "${fixture.home.team.location} ${fixture.home.team.name}"
         holder.homeScore.text = fixture.home.score
-//        holder.homeColor.setBackgroundColor(Color.parseColor("#222222")) // Retrieve this async
-        holder.awayName.text = fixture.away.team
+        holder.homeColor.setBackgroundColor(Color.parseColor(fixture.home.team.primaryColor))
+
+        holder.awayName.text = "${fixture.away.team.location} ${fixture.away.team.name}"
         holder.awayScore.text = fixture.away.score
-//        holder.awayColor.setBackgroundColor(Color.parseColor("#222222")) // Retrieve this async
+        holder.awayColor.setBackgroundColor(Color.parseColor(fixture.away.team.primaryColor))
+
         holder.state.text = when(fixture.status) {
             FixtureStatus.scheduled -> fixture.date
             FixtureStatus.started -> "In Progress"
