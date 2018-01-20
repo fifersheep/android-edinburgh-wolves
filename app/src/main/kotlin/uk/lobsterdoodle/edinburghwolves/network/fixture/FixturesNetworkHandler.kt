@@ -16,10 +16,10 @@ class FixturesNetworkHandler {
 
     private fun handleFetch(fetch: FetchFixturesDocument) {
 
-        "/fixtures".httpGet().responseObject(Doc.ListDeserializer()) { request, response, result ->
-            val (doc, error) = result
-            if (error == null && doc != null) {
-                Bus.send(FixturesCollection(doc.fixtures))
+        "/fixtures".httpGet().responseObject(Fixture.ListDeserializer()) { request, response, result ->
+            val (fixtures, error) = result
+            if (error == null && fixtures != null) {
+                Bus.send(FixturesCollection(fixtures))
             } else {
                 //error handling
             }
