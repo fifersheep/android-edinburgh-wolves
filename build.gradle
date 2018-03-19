@@ -2,7 +2,7 @@ buildscript {
     ext.build_tools_version = '25.0.3'
     ext.support_version_number = '26.1.0'
 
-    ext.kotlin_version = '1.1.51'
+    ext.kotlin_version = '1.2.10'
     ext.butterknife_version = '8.8.1'
     ext.dagger_version = '2.5'
 
@@ -11,7 +11,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.google.gms:google-services:3.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.jakewharton:butterknife-gradle-plugin:$butterknife_version"

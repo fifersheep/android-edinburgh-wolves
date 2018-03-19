@@ -54,7 +54,7 @@ dependencies {
     provided 'org.glassfish:javax.annotation:10.0-b28'
 
     compile 'com.eightbitlab:rxbus:1.0.2'
-    compile 'com.google.firebase:firebase-firestore:11.6.0'
+    compile 'com.google.firebase:firebase-firestore:11.8.0'
 }
 
 kapt {
