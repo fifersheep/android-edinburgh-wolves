@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity(), OnFragmentInteractionListener, OnListF
     private inner class HomeFragmentPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         override fun getItem(position: Int): Fragment {
             when (position) {
-                0 -> return OverviewFragment
+                0 -> return OverviewFragment()
                 1 -> return FixturesFragment()
                 2 -> return RosterListFragment.newInstance()
                 else -> { return DummyFragment.newInstance() }

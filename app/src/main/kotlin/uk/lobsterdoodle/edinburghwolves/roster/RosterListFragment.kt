@@ -35,15 +35,19 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     }
 
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_roster_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_roster_list, container, false)
 
         if (view is RecyclerView) {
             val context = view.getContext()
             val recyclerView = view
             val dividerItemDecoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-            dividerItemDecoration.setDrawable(ContextCompat.getDrawable(activity, R.drawable.vertical_list_divider))
+            activity?.let { a ->
+                ContextCompat.getDrawable(a, R.drawable.vertical_list_divider)?.let { d ->
+                    dividerItemDecoration.setDrawable(d)
+                }
+            }
             recyclerView.addItemDecoration(dividerItemDecoration)
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter
@@ -61,7 +65,7 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     }
 
     private fun playersDoc(doc: PlayersCollection) {
-        activity.runOnUiThread {
+        activity?.runOnUiThread {
             adapter.newData(doc.players.sortedWith(compareBy { it.number }).toMutableList())
         }
     }
@@ -69,7 +73,7 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
-            mListener = context as OnListFragmentInteractionListener?
+            mListener = context
         } else {
             throw RuntimeException(context!!.toString() + " must implement OnListFragmentInteractionListener")
         }

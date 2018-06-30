@@ -30,14 +30,18 @@ class FixturesFragment : Fragment() {
         App.get(activity).component().inject(this)
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater!!.inflate(R.layout.fragment_fixtures, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_fixtures, container, false)
 
         if (view is RecyclerView) {
             val context = view.getContext()
             val recyclerView = view
             val dividerItemDecoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-            dividerItemDecoration.setDrawable(ContextCompat.getDrawable(activity, R.drawable.vertical_list_divider_8dp_transparent))
+            activity?.let { a ->
+                ContextCompat.getDrawable(a, R.drawable.vertical_list_divider_8dp_transparent)?.let { d ->
+                    dividerItemDecoration.setDrawable(d)
+                }
+            }
             recyclerView.addItemDecoration(dividerItemDecoration)
             recyclerView.layoutManager = LinearLayoutManager(context)
             recyclerView.adapter = adapter
@@ -50,7 +54,7 @@ class FixturesFragment : Fragment() {
     }
 
     private fun fixturesDoc(doc: FixturesCollection) {
-        activity.runOnUiThread {
+        activity?.runOnUiThread {
             adapter.newData(doc.fixtures.sortedWith(compareBy { it.date }).toMutableList())
         }
     }
@@ -58,7 +62,7 @@ class FixturesFragment : Fragment() {
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
-            mListener = context as OnListFragmentInteractionListener?
+            mListener = context
         } else {
             throw RuntimeException(context!!.toString() + " must implement OnListFragmentInteractionListener")
         }
