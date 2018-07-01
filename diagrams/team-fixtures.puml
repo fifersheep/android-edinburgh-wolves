@@ -1,0 +1,47 @@
+@startuml
+participant FixturesFragment as Fragment
+participant FixturesListUseCase as UseCase
+participant FixturesDataHandler as FixtureHandler
+participant TeamsDataHandler as TeamHandler
+participant FireStore as DB
+
+skinparam monochrome true
+skinparam sequenceMessageAlign center
+
+title Fixtures List Flow
+
+activate Fragment
+Fragment -> UseCase: TeamFixturesVisible( teamId )
+activate UseCase
+
+UseCase -> FixtureHandler: RequestFixtures( teamId )
+activate FixtureHandler
+
+FixtureHandler -> DB: fixtures involving teamId
+activate DB
+FixtureHandler <-- DB: FixturesDoc( fixtures )
+deactivate DB
+
+UseCase <- FixtureHandler: FixturesDoc( fixtures )
+deactivate FixtureHandler
+
+loop #eee for each team id in fixtures
+    UseCase -> TeamHandler: fixtureTeamId
+    activate TeamHandler
+    TeamHandler -> DB: team for id
+    activate DB
+    TeamHandler <-- DB: TeamDoc( team )
+    deactivate DB
+    UseCase <- TeamHandler: TeamDoc( team )
+    deactivate TeamHandler
+end
+
+Fragment <- UseCase: FixturesData( fixtures )
+note over UseCase
+  ""FixturesData"" fixtures
+  contain the relevant
+  team data
+end note
+deactivate UseCase
+
+@enduml
