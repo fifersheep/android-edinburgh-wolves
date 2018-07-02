@@ -1,23 +1,22 @@
 package uk.lobsterdoodle.edinburghwolves.network.fixture
 
-import com.eightbitlab.rxbus.Bus
 import com.google.firebase.firestore.FirebaseFirestore
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
 
 class FixturesNetworkHandler {
 
-    var store = FirebaseFirestore.getInstance()
+    private var store = FirebaseFirestore.getInstance()
 
-    init {
-        Bus.observe<FetchFixturesDocument>().subscribe { handleFetch(it) }
-    }
-
-    private fun handleFetch(fetch: FetchFixturesDocument) {
-        store.collection(fetch.resource).get().addOnCompleteListener { task ->
+    fun getFixtures() : Observable<FixturesCollection> {
+        val subject = PublishSubject.create<FixturesCollection>()
+        store.collection("fixtures").get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val fs : List<Fixture> = task.result.map { docSnapshot -> docSnapshot.toObject(Fixture::class.java) }
-                Bus.send(FixturesCollection(fs))
+                subject.onNext(FixturesCollection(task.result
+                        .map { docSnapshot -> docSnapshot.toObject(Fixture::class.java) }))
             }
         }
+        return subject
     }
 }

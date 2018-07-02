@@ -1,23 +1,22 @@
 package uk.lobsterdoodle.edinburghwolves.network.player
 
-import com.eightbitlab.rxbus.Bus
 import com.google.firebase.firestore.FirebaseFirestore
+import io.reactivex.Observable
+import io.reactivex.subjects.PublishSubject
 import uk.lobsterdoodle.edinburghwolves.model.Player
 
 class PlayersNetworkHandler {
 
-    val store = FirebaseFirestore.getInstance()
+    private val store = FirebaseFirestore.getInstance()
 
-    init {
-        Bus.observe<FetchPlayersDocument>().subscribe { handleFetch(it) }
-    }
-
-    private fun handleFetch(fetch: FetchPlayersDocument) {
-        store.collection(fetch.resource).get().addOnCompleteListener { task ->
+    fun getPlayers(): Observable<PlayersCollection> {
+        val subject = PublishSubject.create<PlayersCollection>()
+        store.collection("players").get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val ps: List<Player> = task.result.map { docSnapshot -> docSnapshot.toObject(Player::class.java) }
-                Bus.send(PlayersCollection(ps))
+                subject.onNext(PlayersCollection(task.result
+                        .map { docSnapshot -> docSnapshot.toObject(Player::class.java) }))
             }
         }
+        return subject
     }
 }

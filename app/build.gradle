@@ -37,6 +37,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.github.ReactiveX:RxKotlin:2.2.0'
 
     implementation "com.android.support:support-v4:27.1.1"
     implementation "com.android.support:appcompat-v7:27.1.1"
@@ -54,7 +55,6 @@ dependencies {
 
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
-    implementation 'com.eightbitlab:rxbus:1.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-firestore:17.0.2'
 }

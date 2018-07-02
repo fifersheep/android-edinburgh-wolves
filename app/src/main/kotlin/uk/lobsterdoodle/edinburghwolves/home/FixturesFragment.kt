@@ -10,20 +10,21 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.eightbitlab.rxbus.Bus
-import rx.schedulers.Schedulers
+import io.reactivex.Observable
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
 import uk.lobsterdoodle.edinburghwolves.fixture.FixtureListItemRecyclerViewAdapter
 import uk.lobsterdoodle.edinburghwolves.model.Fixture
-import uk.lobsterdoodle.edinburghwolves.network.fixture.FetchFixturesDocument
 import uk.lobsterdoodle.edinburghwolves.network.fixture.FixturesCollection
+import javax.inject.Inject
 
 
 class FixturesFragment : Fragment() {
     private var mListener: FixturesFragment.OnListFragmentInteractionListener? = null
 
     private val adapter = FixtureListItemRecyclerViewAdapter(mListener)
+
+    @Inject lateinit var fixtureDocs: Observable<FixturesCollection>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +48,7 @@ class FixturesFragment : Fragment() {
             recyclerView.adapter = adapter
         }
 
-        Bus.observe<FixturesCollection>().observeOn(Schedulers.newThread()).subscribe { fixturesDoc(it) }
-        Bus.send(FetchFixturesDocument("fixtures"))
-
+        fixtureDocs.subscribe { fixturesDoc(it) }
         return view
     }
 

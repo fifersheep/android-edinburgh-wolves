@@ -10,15 +10,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.eightbitlab.rxbus.Bus
-import com.eightbitlab.rxbus.registerInBus
-import rx.schedulers.Schedulers
+import io.reactivex.Observable
 import uk.lobsterdoodle.edinburghwolves.app.R
 import uk.lobsterdoodle.edinburghwolves.app.base.App
-import uk.lobsterdoodle.edinburghwolves.core.presenter.RosterListFragmentPresenter
 import uk.lobsterdoodle.edinburghwolves.core.view.RosterListFragmentView
 import uk.lobsterdoodle.edinburghwolves.model.Player
-import uk.lobsterdoodle.edinburghwolves.network.player.FetchPlayersDocument
 import uk.lobsterdoodle.edinburghwolves.network.player.PlayersCollection
 import javax.inject.Inject
 
@@ -27,7 +23,7 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
 
     private val adapter = RosterListItemRecyclerViewAdapter(mListener)
 
-    @Inject lateinit var presenter: RosterListFragmentPresenter
+    @Inject lateinit var playerDocs: Observable<PlayersCollection>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,15 +49,8 @@ class RosterListFragment : Fragment(), RosterListFragmentView {
             recyclerView.adapter = adapter
         }
 
-        presenter.onCreateView(this)
-        Bus.observe<PlayersCollection>().observeOn(Schedulers.newThread()).subscribe { playersDoc(it) }.registerInBus(this)
-        Bus.send(FetchPlayersDocument("players"))
+        playerDocs.subscribe { playersDoc(it) }
         return view
-    }
-
-    override fun onResume() {
-        super.onResume()
-        presenter.onResume()
     }
 
     private fun playersDoc(doc: PlayersCollection) {
